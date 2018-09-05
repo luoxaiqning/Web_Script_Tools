@@ -1,0 +1,16 @@
+0,action_type,open_page
+0,url,http://soa.proya.com/xplatform
+1,action_type,get_element
+1,element_path_type,xpath
+1,element_path,//input[@name="passport"]
+2,action_type,element_input_text
+2,element_input_text,009455
+3,action_type,get_element
+3,element_path_type,xpath
+3,element_path,//input[@name="password"]
+4,action_type,element_input_text
+4,element_input_text,INT123
+5,action_type,get_element
+5,element_path_type,xpath
+5,element_path,//input[@type="submit"]
+6,action_type,click_button
