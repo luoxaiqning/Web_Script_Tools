@@ -1,0 +1,13 @@
+ser_id:s145
+username:luoxianqing@outlook.com
+password:qqingqq123
+time_relogin:300000
+time_get_fleet_line:3000
+time_esp_low:3000
+time_esp_top:90000
+time_analyze_message:53000
+time_get_esp_target:3000
+loot_resources_trigger:1000000
+loot_defence_trigeer:0
+loot_galaxy_from:1
+loot_galaxy_to:5
