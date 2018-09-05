@@ -46,7 +46,7 @@ class Main():
 			if index!=int(content[count].split(',')[0].replace('\n','')):
 				index=int(content[count].split(',')[0].replace('\n',''))
 				self.action_list[index]=Action_List()
-
+			print name
 			if   name=='action_type':
 				self.action_list[index].action_type=text
 			elif name=='url':
