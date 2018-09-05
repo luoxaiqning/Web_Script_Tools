@@ -40,29 +40,28 @@ class Main():
 		
 		index=''
 		for count in range(0,len(content)):
-			name=content[count].split(',')[1].replace('\n','')
-			text=content[count].split(',')[2].replace('\n','')
+			action=content[count].split(',')[1].replace('\n','')
+			detail=content[count].split(',')[2].replace('\n','')
 
 			if index!=int(content[count].split(',')[0].replace('\n','')):
 				index=int(content[count].split(',')[0].replace('\n',''))
 				self.action_list[index]=Action_List()
-			print name
-			if   name=='action_type':
-				self.action_list[index].action_type=text
-			elif name=='url':
-				self.action_list[index].url=text
-			elif name=='element_path':
-				self.action_list[index].element_path=text
-			elif name=='elements_path':
-				self.action_list[index].elements_path=text
-			elif name=='element_path_type':
-				self.action_list[index].element_path_type=text
-			elif name=='elements_path_type':
-				self.action_list[index].elements_path_type=text
-			elif name=='element_input_text':
-				self.action_list[index].element_input_text=text
-			elif name=='elements_input_text':
-				self.action_list[index].elements_input_text=text
+			if   action=='action_type':
+				self.action_list[index].action_type=detail
+			elif action=='url':
+				self.action_list[index].url=detail
+			elif action=='element_path':
+				self.action_list[index].element_path=detail
+			elif action=='elements_path':
+				self.action_list[index].elements_path=detail
+			elif action=='element_path_type':
+				self.action_list[index].element_path_type=detail
+			elif action=='elements_path_type':
+				self.action_list[index].elements_path_type=detail
+			elif action=='element_input_text':
+				self.action_list[index].element_input_text=detail
+			elif action=='elements_input_text':
+				self.action_list[index].elements_input_text=detail
 
 
 		
