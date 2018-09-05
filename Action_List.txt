@@ -14,3 +14,7 @@
 5,element_path_type,xpath
 5,element_path,//input[@type="submit"]
 6,action_type,click_button
+7,action_type,get_element
+7,element_path_type,xpath
+7,element_path,/html/body/div/div[2]/div/div/p/a
+8,action_type,click_button
