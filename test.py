@@ -1,4 +1,8 @@
-file = open('Action_List.csv','r')
-content = file.readlines()
-file.close()
-print content
+class Action_List():
+	action_type		=''
+	element_type 	=''
+	element_path 	=''
+	content  		=''
+	element 		=''
+	elements 		=''
+
