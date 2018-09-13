@@ -1,10 +1,10 @@
-index = 0
-num =0
-while index < 2 and num <100:
-	print index,num
-	index+=1
-	num+=1
-	if index == 2:
-		index = 1
-		continue
-	
+import urllib
+'''
+url='http://chromedriver.storage.googleapis.com/2.40/chromedriver_win32.zip'
+name=url.split('.')[-2].split('/')[-1]+'.'+url.split('.')[-1]
+print name
+urllib.urlretrieve(url,name)
+'''
+file=open('test.txt','w')
+file.write('test')
+file.close()

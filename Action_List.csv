@@ -1,4 +1,4 @@
 step_index,action_type,element_path_type,element_path,content,sleep_time,goto_step
 0,open_page,,,Thttp://jandan.net/pic,,
 1,download_img,tag_name,img,,,
-2,click_button,class_name,previous-comment-page,,5,1
+2,click_button,class_name,previous-comment-page,,5,

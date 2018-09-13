@@ -6,12 +6,15 @@ from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver import ActionChains
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
+import sys
+reload(sys)  
+sys.setdefaultencoding('utf8')   
 
 class Action_List():
 	action_type		=''
 	element_path_type 	=''
 	element_path 	=''
-	content  		=''
+	contents  		=''
 	sleep_time 		=''
 	goto_step 		=''
 		
@@ -20,7 +23,8 @@ class Main():
 	def __init__(self):
 		firefoxProfile=FirefoxProfile() 								# 	
 		#firefoxProfile.set_preference('permissions.default.image',2)	# 
-		self.driver=webdriver.Firefox(firefoxProfile)
+		#self.driver=webdriver.Firefox(firefoxProfile)
+		self.driver=webdriver.Chrome()
 		self.driver.set_page_load_timeout(20)
 		self.driver.set_window_size(500,500)
 		self.element=''
@@ -31,16 +35,16 @@ class Main():
 
 	def Get_Action_List(self):
 		file = open('Action_List1.csv','r')
-		content = file.readlines()
+		text = file.readlines()
 		file.close()
 		self.action_list={}
 
-		for action_step in content[1:]:
+		for action_step in text[1:]:
 			step_index  =int(action_step.split(',')[0].replace('\n',''))
 			action_type =action_step.split(',')[1].replace('\n','')
 			element_path_type=action_step.split(',')[2].replace('\n','')
 			element_path=action_step.split(',')[3].replace('\n','')
-			content 	=action_step.split(',')[4].replace('\n','')[1:]
+			contents 	=action_step.split(',')[4].replace('\n','')[1:]
 			sleep_time 	=action_step.split(',')[5].replace('\n','')
 			if sleep_time=='':sleep_time=int(1)
 			else:sleep_time=int(sleep_time)
@@ -50,7 +54,7 @@ class Main():
 			self.action_list[step_index].action_type =action_type
 			self.action_list[step_index].element_path_type=element_path_type
 			self.action_list[step_index].element_path=element_path
-			self.action_list[step_index].content 	 =content
+			self.action_list[step_index].contents 	 =contents
 			self.action_list[step_index].sleep_time  =sleep_time
 			self.action_list[step_index].goto_step 	 =goto_step
 
@@ -72,6 +76,8 @@ class Main():
 			elif action.action_type=='download_img':
 				self.get_elements(action)
 				self.download_img()
+			elif action.action_type=='get_html':
+				self.get_html()
 
 			if action.goto_step!='':
 				step_index = int(action.goto_step)
@@ -90,13 +96,18 @@ class Main():
 			name='img/'+img_url.split('.')[-2].split('/')[-1]+'.'+img_url.split('.')[-1]
 			urllib.urlretrieve(img_url,name)
 
-
+	def get_html(self):
+		html=self.driver.execute_script("return document.documentElement.outerHTML")
+		file=open('test.html','w')
+		file.write(html)
+		file.close()
 
 	def click_button(self):
 		self.element.send_keys(Keys.ENTER)
+		#self.element.click()
 
 	def element_input_text(self,action):
-		self.element.send_keys(action.content)
+		self.element.send_keys(action.contents)
 
 	def get_element(self,action):
 		if   action.element_path_type=='by_id':
@@ -120,7 +131,7 @@ class Main():
 
 	def open_url(self,action):
 		try:
-			self.driver.get(action.content)
+			self.driver.get(action.contents)
 		except TimeoutException:
 			print 'page stop'
 
