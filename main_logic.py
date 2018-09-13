@@ -12,8 +12,6 @@ class Action_List():
 	element_type 	=''
 	element_path 	=''
 	content  		=''
-	element 		=''
-	elements 		=''
 		
 
 class Main():
@@ -53,6 +51,7 @@ class Main():
 		step_index = 0
 		for step_index in range(0,len(self.action_list)):
 			action=self.action_list[step_index]
+			print step_index,action.element_type
 			if   action.action_type=='open_page':
 				self.open_url(action)
 			elif action.action_type=='input_text':
@@ -61,6 +60,9 @@ class Main():
 			elif action.action_type=='click_button':
 				self.get_element(action)
 				self.click_button()
+			elif action.action_type=='download_imgs':
+				self.get_elements(action)
+
 
 	def click_button(self):
 		self.element.send_keys(Keys.ENTER)
@@ -75,6 +77,14 @@ class Main():
 			self.element=self.driver.find_element_by_class_name(action.element_path)
 		elif action.element_type=='xpath':
 			self.element=self.driver.find_element_by_xpath(action.element_path)
+
+	def get_elements(self,action):
+		if   action.element_type=='by_id':
+			self.elements=self.driver.find_elements_by_id(action.element_path)
+		elif action.element_type=='class_name':
+			self.elements=self.driver.find_elements_by_class_name(action.element_path)
+		elif action.element_type=='xpath':
+			self.elements=self.driver.find_elements_by_xpath(action.element_path)
 
 	def open_url(self,action):
 		try:

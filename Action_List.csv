@@ -1,5 +1,3 @@
 step_index,action_type,element_type,element_path,content
-0,open_page,,,Thttp://soa.proya.com/xplatform
-1,input_text,xpath,//input[@name="passport"],T
-2,input_text,xpath,//input[@name="password"],T
-3,click_button,xpath,//input[@type="submit"],
+0,open_page,,,Thttp://jandan.net/top-4h
+1,,,,
