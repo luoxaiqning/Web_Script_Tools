@@ -1,4 +1,4 @@
-step_index,action_type,element_path_type,element_path,contents,sleep_time,goto_step
+﻿step_index,action_type,element_path_type,element_path,contents,sleep_time,goto_step
 0,open_page,,,Thttp://soa.proya.com/xplatform/,,
 1,input_text,xpath,//*[@id="loginIframe"]/form/div[2]/fieldset/div[1]/input,T009455,,
 2,input_text,xpath,//*[@id="loginIframe"]/form/div[2]/fieldset/div[2]/input,TINT123,,

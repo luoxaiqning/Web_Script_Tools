@@ -1,4 +1,5 @@
-step_index,action_type,element_path_type,element_path,content,sleep_time,goto_step
-0,open_page,,,Thttp://jandan.net/pic,,
-1,download_img,tag_name,img,,,
-2,click_button,class_name,previous-comment-page,,5,
+﻿step_index,action_type,element_path_type,element_path,contents,sleep_time,goto_step
+0,open_page,,,Thttp://www.baidu.com,,
+1,input_text,xpath,//*[@id="kw"],T珀莱雅,,
+2,click_button,xpath,//*[@id="su"],,,
+3,download_text,class_name,c-abstract,,,

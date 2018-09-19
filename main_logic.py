@@ -1,3 +1,4 @@
+# coding: utf-8
 import time
 import random
 import traceback
@@ -6,10 +7,10 @@ from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver import ActionChains
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 import sys
 reload(sys)  
-sys.setdefaultencoding('utf8')   
-
+sys.setdefaultencoding('utf8') 
 class Action_List():
 	action_type		=''
 	element_path_type 	=''
@@ -24,9 +25,12 @@ class Main():
 		firefoxProfile=FirefoxProfile() 								# 	
 		#firefoxProfile.set_preference('permissions.default.image',2)	# 
 		#self.driver=webdriver.Firefox(firefoxProfile)
-		self.driver=webdriver.Chrome()
+		chrome_options=Options()
+		chrome_options.add_argument('--headless')
+		self.driver=webdriver.Chrome(chrome_options=chrome_options)
+		#self.driver=webdriver.Chrome()
 		self.driver.set_page_load_timeout(20)
-		self.driver.set_window_size(500,500)
+		#self.driver.set_window_size(500,500)
 		self.element=''
 		self.elements=''
 
@@ -34,7 +38,7 @@ class Main():
 		self.Process_Action()
 
 	def Get_Action_List(self):
-		file = open('Action_List1.csv','r')
+		file = open('Action_List.csv','r')
 		text = file.readlines()
 		file.close()
 		self.action_list={}
@@ -76,8 +80,11 @@ class Main():
 			elif action.action_type=='download_img':
 				self.get_elements(action)
 				self.download_img()
-			elif action.action_type=='get_html':
-				self.get_html()
+			elif action.action_type=='download_html':
+				self.download_html()
+			elif action.action_type=='download_text':
+				self.get_elements(action)
+				self.download_text()
 
 			if action.goto_step!='':
 				step_index = int(action.goto_step)
@@ -85,6 +92,10 @@ class Main():
 			time.sleep(action.sleep_time)
 
 		print 'end'
+
+	def download_text(self):
+		for element in self.elements:
+			print element.text,'\n'
 
 	def download_img(self):
 		import urllib
@@ -96,7 +107,7 @@ class Main():
 			name='img/'+img_url.split('.')[-2].split('/')[-1]+'.'+img_url.split('.')[-1]
 			urllib.urlretrieve(img_url,name)
 
-	def get_html(self):
+	def download_html(self):
 		html=self.driver.execute_script("return document.documentElement.outerHTML")
 		file=open('test.html','w')
 		file.write(html)
@@ -107,7 +118,8 @@ class Main():
 		#self.element.click()
 
 	def element_input_text(self,action):
-		self.element.send_keys(action.contents)
+		print 'action.contents',action.contents
+		self.element.send_keys(action.contents.decode('utf8'))
 
 	def get_element(self,action):
 		if   action.element_path_type=='by_id':
