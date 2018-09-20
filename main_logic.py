@@ -12,12 +12,15 @@ import sys
 reload(sys)  
 sys.setdefaultencoding('utf8') 
 class Action_List():
-	action_type		=''
+	action_type			=''
 	element_path_type 	=''
-	element_path 	=''
-	contents  		=''
-	sleep_time 		=''
-	goto_step 		=''
+	element_path 		=''
+	contents  			=''
+	sleep_time 			=''
+	goto_step 			=''
+	element 			=''
+	elements 			=''
+	
 		
 
 class Main():
@@ -29,38 +32,42 @@ class Main():
 		chrome_options.add_argument('--headless')
 		self.driver=webdriver.Chrome(chrome_options=chrome_options)
 		#self.driver=webdriver.Chrome()
-		self.driver.set_page_load_timeout(20)
+		self.driver.set_page_load_timeout(10)
 		#self.driver.set_window_size(500,500)
+
+		self.result=''
 		self.element=''
 		self.elements=''
 
+	
+	def run(self):
 		self.Get_Action_List()
 		self.Process_Action()
 
 	def Get_Action_List(self):
-		file = open('Action_List.csv','r')
+		file = open('Action_List1.csv','r')
 		text = file.readlines()
 		file.close()
 		self.action_list={}
 
 		for action_step in text[1:]:
-			step_index  =int(action_step.split(',')[0].replace('\n',''))
-			action_type =action_step.split(',')[1].replace('\n','')
+			step_index   	 =int(action_step.split(',')[0].replace('\n',''))
+			action_type 	 =action_step.split(',')[1].replace('\n','')
 			element_path_type=action_step.split(',')[2].replace('\n','')
-			element_path=action_step.split(',')[3].replace('\n','')
-			contents 	=action_step.split(',')[4].replace('\n','')[1:]
-			sleep_time 	=action_step.split(',')[5].replace('\n','')
+			element_path 	 =action_step.split(',')[3].replace('\n','')
+			contents 	 	 =action_step.split(',')[4].replace('\n','')[1:]
+			sleep_time 	 	 =action_step.split(',')[5].replace('\n','')
 			if sleep_time=='':sleep_time=int(1)
 			else:sleep_time=int(sleep_time)
 			goto_step 	=action_step.split(',')[6].replace('\n','')
 
 			self.action_list[step_index]=Action_List()
-			self.action_list[step_index].action_type =action_type
+			self.action_list[step_index].action_type   	  =action_type
 			self.action_list[step_index].element_path_type=element_path_type
-			self.action_list[step_index].element_path=element_path
-			self.action_list[step_index].contents 	 =contents
-			self.action_list[step_index].sleep_time  =sleep_time
-			self.action_list[step_index].goto_step 	 =goto_step
+			self.action_list[step_index].element_path 	  =element_path
+			self.action_list[step_index].contents 	 	  =contents
+			self.action_list[step_index].sleep_time       =sleep_time
+			self.action_list[step_index].goto_step 	      =goto_step
 
 	def Process_Action(self):
 		step_index = 0
@@ -72,28 +79,29 @@ class Main():
 			if   action.action_type=='open_page':
 				self.open_url(action)
 			elif action.action_type=='input_text':
-				self.get_element(action)
+				self.get_element(action,self.driver)
 				self.element_input_text(action)
 			elif action.action_type=='click_button':
-				self.get_element(action)
+				self.get_element(action,self.driver)
 				self.click_button()
 			elif action.action_type=='download_img':
-				self.get_elements(action)
+				self.get_elements(action,self.driver)
 				self.download_img()
 			elif action.action_type=='download_html':
 				self.download_html()
 			elif action.action_type=='download_text':
-				self.get_elements(action)
-				self.download_text()
+				self.get_elements(action,self.driver)
+				self.download_text(action)
 
 			if action.goto_step!='':
 				step_index = int(action.goto_step)
 			
 			time.sleep(action.sleep_time)
-
 		print 'end'
+		self.driver.quit()
+		return self.result
 
-	def download_text(self):
+	def download_text(self,action):
 		for element in self.elements:
 			print element.text,'\n'
 
@@ -121,25 +129,25 @@ class Main():
 		print 'action.contents',action.contents
 		self.element.send_keys(action.contents.decode('utf8'))
 
-	def get_element(self,action):
+	def get_element(self,action,element):
 		if   action.element_path_type=='by_id':
-			self.element=self.driver.find_element_by_id(action.element_path)
-		elif action.element_path_type=='class_name':
-			self.element=self.driver.find_element_by_class_name(action.element_path)
-		elif action.element_path_type=='xpath':
-			self.element=self.driver.find_element_by_xpath(action.element_path)
-		elif action.element_path_type=='tag_name':
-			self.element=self.driver.find_element_by_tag_name(action.element_path)
+			self.element=element.find_element_by_id(action.element_path)
+		elif action.element_path_type=='by_class':
+			self.element=element.find_element_by_class_name(action.element_path)
+		elif action.element_path_type=='by_xpath':
+			self.element=element.find_element_by_xpath(action.element_path)
+		elif action.element_path_type=='by_name':
+			self.element=element.find_element_by_tag_name(action.element_path)
 
-	def get_elements(self,action):
+	def get_elements(self,action,element):
 		if   action.element_path_type=='by_id':
-			self.elements=self.driver.find_elements_by_id(action.element_path)
-		elif action.element_path_type=='class_name':
-			self.elements=self.driver.find_elements_by_class_name(action.element_path)
-		elif action.element_path_type=='xpath':
-			self.elements=self.driver.find_elements_by_xpath(action.element_path)
-		elif action.element_path_type=='tag_name':
-			self.elements=self.driver.find_elements_by_tag_name(action.element_path)
+			self.elements=element.find_elements_by_id(action.element_path)
+		elif action.element_path_type=='by_class':
+			self.elements=element.find_elements_by_class_name(action.element_path)
+		elif action.element_path_type=='by_xpath':
+			self.elements=element.find_elements_by_xpath(action.element_path)
+		elif action.element_path_type=='by_name':
+			self.elements=element.find_elements_by_tag_name(action.element_path)
 
 	def open_url(self,action):
 		try:
@@ -149,3 +157,4 @@ class Main():
 
 if __name__ == "__main__":
 	main=Main()
+	main.run()
