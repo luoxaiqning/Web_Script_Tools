@@ -1,20 +1,12 @@
-0,action_type,open_page
-0,url,http://soa.proya.com/xplatform
-1,action_type,get_element
-1,element_path_type,xpath
-1,element_path,//input[@name="passport"]
-2,action_type,element_input_text
-2,element_input_text,009455
-3,action_type,get_element
-3,element_path_type,xpath
-3,element_path,//input[@name="password"]
-4,action_type,element_input_text
-4,element_input_text,INT123
-5,action_type,get_element
-5,element_path_type,xpath
-5,element_path,//input[@type="submit"]
-6,action_type,click_button
-7,action_type,get_element
-7,element_path_type,xpath
-7,element_path,/html/body/div/div[2]/div/div/p/a
-8,action_type,click_button
+0,	action_type,		open_page
+0,	url,			http://jandan.net/pic
+
+1,	action_type,		find_elements
+1,	element_path_type,	by_class
+1,	element_path,		row
+
+2,	action_type,		download_img
+2,	element_path_type,	by_tag
+2,	element_path,		img
+2,	identify_flag,		jandan
+
