@@ -1,4 +1,0 @@
-step_index,action_type,element_path_type,element_path,contents,sleep_time,goto_step,reference_element
-0,open_page,,,Thttp://jandan.net/pic,,,
-1,find_elements,by_class,row,,,,
-2,download_img,by_tag,img,Tjandan,,,1

@@ -1,0 +1,34 @@
+0#	action_type#	open_page
+0#	url#		https://en.ikariam.gameforge.com
+
+1#	action_type#	click_button
+1#	element_path_type#	by_xpath
+1#	element_path#	//*[@id="btn-login"]
+
+2#	action_type#	select
+2#	element_path_type#	by_xpath
+2#	element_path#	//*[@id="logServer"]
+2#	select_type#	by_text
+2#	contents#		Alpha
+
+3#	action_type#	input_text
+3#	element_path_type#	by_xpath
+3#	element_path#	//*[@id="loginName"]
+3#	contents#		luoxianqing@outlook.com
+
+4#	action_type#	input_text
+4#	element_path_type#	by_xpath
+4#	element_path#	//*[@id="loginPassword"]
+4#	contents#		qqingqq123
+
+5#	action_type#	click_button
+5#	element_path_type#	by_xpath
+5#	element_path#	//*[@id="loginBtn"]
+
+6#	action_type#	click_button
+6#	element_path_type#	by_xpath
+6#	element_path#	//*[@id="js_tutorialOkButton_quest"]
+
+7#	action_type#	click_button
+7#	element_path_type#	by_xpath
+7#	element_path#	//*[@id="accept_btn"]

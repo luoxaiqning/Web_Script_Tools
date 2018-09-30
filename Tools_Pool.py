@@ -3,17 +3,17 @@ from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 import traceback
 
-def download_text(element):
+def get_text(element):
 	try:
 		print 'element.text',element.text
 	except:
 		pass
 
-def download_img(element,contents):
+def download_img(element,flag):
 	try:
 		import urllib
 		img_url=element.get_attribute('src')
-		if contents=='jandan':
+		if flag=='jandan':
 			img_url=img_url.replace('thumb180','large')
 		print img_url
 			
@@ -23,21 +23,35 @@ def download_img(element,contents):
 		pass
 
 def download_html(driver):
-	print 'html'
-	html=driver.get_attribute('innerHTML')
-	print html
-	#html=driver.execute_script("return document.documentElement.outerHTML")
-	#file=open('test.html','w')
-	#file.write(html)
-	#file.close()
+	html=driver.execute_script("return document.documentElement.outerHTML")
+	file=open('html.html','w')
+	file.write(html)
+	file.close()
+
+def print_element(element):
+	print element.get_attribute('innerHTML')
+
+def get_attribute(self,element,action):
+	self.return_contents[len(self.return_contents)]=element.get_attribute(action.contents)
 
 def click_button(element):
-	element.send_keys(Keys.ENTER)
-	#self.element.click()
+	element.click()
 
-def element_input_text(action,driver):
-	print 'action.contents',action.contents
-	driver.send_keys(action.contents.decode('utf8'))
+def click_enter(element):
+	element.send_keys(Keys.ENTER)
+
+def element_input_text(element,action):
+	#print 'action.contents',action.contents
+	element.send_keys(action.contents.decode('utf8'))
+
+def select(element,action):
+	from selenium.webdriver.support.select import Select
+	if   action.select_type=='by_index':
+		Select(element).select_by_index(action.contents)
+	elif action.select_type=='by_value':
+		Select(element).select_by_value(action.contents)
+	elif action.select_type=='by_text':
+		Select(element).select_by_visible_text(action.contents)
 
 def get_element(action,driver):
 	try:
@@ -53,7 +67,8 @@ def get_element(action,driver):
 			element=driver.execute_script(action.element_path)
 	except:
 		#print traceback.print_exc()
-		return
+		print 'Unable to locate element'
+		return False
 	return element
 
 def get_elements(action,driver):
@@ -69,12 +84,13 @@ def get_elements(action,driver):
 		elif action.element_path_type=='by_jQuery':
 			elements=driver.execute_script(action.element_path)
 	except:
-		print traceback.print_exc()
-		return
+		#print traceback.print_exc()
+		print 'Unable to locate element'
+		return False
 	return elements
 
 def open_url(action,driver):
 	try:
-		driver.get(action.contents)
+		driver.get(action.url)
 	except TimeoutException:
 		print 'page stop'

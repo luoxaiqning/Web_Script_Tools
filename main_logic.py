@@ -1,4 +1,6 @@
 # coding: utf-8
+
+#import win32com
 import time
 import random
 import traceback
@@ -19,11 +21,10 @@ class Action_List():
 	contents  			=''
 	sleep_time 			=''
 	goto_step 			=''
-	element 			=''
-	elements 			=''
-	reference_element   =''
+	reference_flag   	=''
 	url 				=''
 	identify_flag 		=''
+	select_type 		=''
 	
 		
 
@@ -32,79 +33,72 @@ class Main():
 		firefoxProfile=FirefoxProfile() 								# 	
 		#firefoxProfile.set_preference('permissions.default.image',2)	# 
 		#self.driver=webdriver.Firefox(firefoxProfile)
+		self.headless_flag	=False
+		self.noimg_flag 	=False
 		chrome_options=Options()
-		chrome_options.add_argument('--headless')
+		if self.headless_flag:chrome_options.add_argument('--headless')
+		if self.noimg_flag:   chrome_options.add_experimental_option("prefs",{"profile.managed_default_content_settings.images":2})
 		self.driver=webdriver.Chrome(chrome_options=chrome_options)
-		#self.driver=webdriver.Chrome()
-		self.driver.set_page_load_timeout(20)
+		#self.driver.set_page_load_timeout(60)
 		#self.driver.set_window_size(500,500)
 
+		self.element=''
+		self.elements={}
+		self.return_contents={}
 	
 	def run(self):
 		try:
-			self.Get_Action_List()
+			self.Get_Action_List('test1.txt')
 			self.Process_Action()
-			self.driver.quit()
+			if self.headless_flag:
+				self.driver.quit()
 			print 'end'
 		except:
 			self.driver.quit()
 			print 'error'
 			print traceback.print_exc()
+		#return self.driver
 
-
-	def Get_Action_List(self):
-		file = open('Action_List1.csv','r')
-		text = file.readlines()
+	def Get_Action_List(self,action_step):
+		print action_step
+		file = open(action_step,'r')
+		text_list = file.readlines()
 		file.close()
+		text_index=0
+		step_index=0
 		self.action_list={}
-
-		for action_step in text[1:]:
-			step_index   	 =int(action_step.split(',')[0].replace('\n',''))
-			action_type 	 =action_step.split(',')[1].replace('\n','')
-			element_path_type=action_step.split(',')[2].replace('\n','')
-			element_path 	 =action_step.split(',')[3].replace('\n','')
-			contents 	 	 =action_step.split(',')[4].replace('\n','')[1:]
-			sleep_time 	 	 =action_step.split(',')[5].replace('\n','')
-			if sleep_time=='':sleep_time=int(1)
-			else:sleep_time=int(sleep_time)
-			goto_step 	 	 =action_step.split(',')[6].replace('\n','')
-			reference_element=action_step.split(',')[7].replace('\n','')
-
-			self.action_list[step_index]=Action_List()
-			self.action_list[step_index].action_type   	  =action_type
-			self.action_list[step_index].element_path_type=element_path_type
-			self.action_list[step_index].element_path 	  =element_path
-			self.action_list[step_index].contents 	 	  =contents
-			self.action_list[step_index].sleep_time       =sleep_time
-			self.action_list[step_index].goto_step 	      =goto_step
-			self.action_list[step_index].reference_element=reference_element
+		for text in text_list:
+			text=text.replace('\n','')
+			if text!='':
+				text_index,text_type,text_detail=text.replace('\t','').replace(' ','').split('#')
+				if text_index>step_index:
+					step_index=text_index
+					self.action_list[step_index]=Action_List()
+				if   text_type=='action_type'	   	:self.action_list[step_index].action_type		=str(text_detail)
+				elif text_type=='url'				:self.action_list[step_index].url				=str(text_detail)
+				elif text_type=='element_path_type'	:self.action_list[step_index].element_path_type	=str(text_detail)
+				elif text_type=='element_path'		:self.action_list[step_index].element_path 		=str(text_detail)
+				elif text_type=='identify_flag'		:self.action_list[step_index].identify_flag 	=str(text_detail)
+				elif text_type=='contents'			:self.action_list[step_index].contents			=str(text_detail)
+				elif text_type=='sleep_time'		:self.action_list[step_index].sleep_time 		=int(text_detail)
+				elif text_type=='goto_step'			:self.action_list[step_index].goto_step 		=str(text_detail)
+				elif text_type=='reference_flag'	:self.action_list[step_index].reference_flag 	=str(text_detail)
+				elif text_type=='select_type'		:self.action_list[step_index].select_type 		=str(text_detail)
 
 	def Process_Action(self):
 		step_index = 0
 		while step_index < len(self.action_list):
-			action=self.action_list[step_index]
+			action=self.action_list[str(step_index)]
 			step_index+=1
 
-			#判断是操纵的全局还是局部的元素，在判断中分别赋予对应的元素
-			if action.reference_element=='':
-				#如果是在全局，则直接执行操作
-				self.Do_Action(action,self.driver)
-			else:
-				#如果是在之前抓取的元素中执行进一步操作，则首先判断是元素还是元素组
-				if   self.action_list[int(action.reference_element)].action_type=='find_element':
-					#是元素则直接执行操作
-					element =self.action_list[int(action.reference_element)].element
+			if action.reference_flag=='elements':
+				for element in self.elements:
 					self.Do_Action(action,element)
-				elif self.action_list[int(action.reference_element)].action_type=='find_elements':
-					#是元素组则需要对全部元素进行循环执行
-					elements=self.action_list[int(action.reference_element)].elements
-					for element in elements:
-						self.Do_Action(action,element)
-				else:
-					#没有输入相关元素步骤
-					print 'error'
-
-			time.sleep(action.sleep_time)
+			elif action.reference_flag=='element':
+				self.Do_Action(action,self.element)
+			else:
+				self.Do_Action(action,self.driver)
+			if action.sleep_time!='':time.sleep(action.sleep_time)
 
 	def Do_Action(self,action,driver):
 		print 'action_type:',action.action_type
@@ -112,32 +106,47 @@ class Main():
 			Tools_Pool.open_url(action,driver)
 
 		if   action.action_type=='find_element':
-			action.element=Tools_Pool.get_element(action,driver)
+			self.element=Tools_Pool.get_element(action,driver)
 
-		if   action.action_type=='find_elements':
-			action.elements=Tools_Pool.get_elements(action,driver)
+		elif action.action_type=='find_elements':
+			self.elements=Tools_Pool.get_elements(action,driver)
+
+		elif action.action_type=='select':
+			element=Tools_Pool.get_element(action,driver)
+			if element:Tools_Pool.select(element,action)
 
 		elif action.action_type=='input_text':
-			action.element=Tools_Pool.get_element(action,driver)
-			Tools_Pool.element_input_text(action)
+			element=Tools_Pool.get_element(action,driver)
+			if element:Tools_Pool.element_input_text(element,action)
 
 		elif action.action_type=='click_button':
-			action.element=Tools_Pool.get_element(action,driver)
-			Tools_Pool.click_button()
+			element=Tools_Pool.get_element(action,driver)
+			if element:Tools_Pool.click_button(element)
+
+		elif action.action_type=='click_enter':
+			element=Tools_Pool.get_element(action,driver)
+			if element:Tools_Pool.click_enter(element)
 
 		elif action.action_type=='download_img':
-			action.element=Tools_Pool.get_element(action,driver)
-			Tools_Pool.download_img(action.element,action.contents)
+			element=Tools_Pool.get_element(action,driver)
+			if element:Tools_Pool.download_img(element,action.identify_flag)
 
 		elif action.action_type=='download_html':
 			Tools_Pool.download_html(driver)
 
-		elif action.action_type=='download_text':
-			action.element=Tools_Pool.get_element(action,driver)
-			Tools_Pool.download_text(action.element)
+		elif action.action_type=='get_text':
+			element=Tools_Pool.get_element(action,driver)
+			if element:Tools_Pool.get_text(element)
 
+		elif action.action_type=='print_element':
+			if driver:Tools_Pool.print_element(driver)
 
+		elif action.action_type=='get_attribute':
+			element=Tools_Pool.get_element(action,driver)
+			if element:Tools_Pool.get_attribute(self,element,action)
 
 if __name__ == "__main__":
 	main=Main()
 	main.run()
+	print 'mark'
+	#main.driver.quit()
