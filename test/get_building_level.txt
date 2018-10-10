@@ -1,0 +1,9 @@
+0#	action_type#	find_elements
+0#	element_path_type#	by_xpath
+0#	element_path#	//div[starts-with(@id,'position')]
+
+1#	action_type#	get_attribute
+1#	reference_flag#	elements
+1#	element_path_type#	by_class
+1#	element_path#	hoverable
+1#	contents#		title

@@ -32,7 +32,7 @@ def print_element(element):
 	print element.get_attribute('innerHTML')
 
 def get_attribute(self,element,action):
-	self.return_contents[len(self.return_contents)]=element.get_attribute(action.contents)
+	self.return_contents[action.return_flag][len(self.return_contents[action.return_flag])]=element.get_attribute(action.contents)
 
 def click_button(element):
 	element.click()
@@ -63,8 +63,11 @@ def get_element(action,driver):
 			element=driver.find_element_by_xpath(action.element_path)
 		elif action.element_path_type=='by_tag':
 			element=driver.find_element_by_tag_name(action.element_path)
+		elif action.element_path_type=='by_text':
+			element=driver.find_element_by_link_text(action.element_path)
 		elif action.element_path_type=='by_jQuery':
 			element=driver.execute_script(action.element_path)
+		
 	except:
 		#print traceback.print_exc()
 		print 'Unable to locate element'
@@ -81,6 +84,8 @@ def get_elements(action,driver):
 			elements=driver.find_elements_by_xpath(action.element_path)
 		elif action.element_path_type=='by_tag':
 			elements=driver.find_elements_by_tag_name(action.element_path)
+		elif action.element_path_type=='by_text':
+			elements=driver.find_elements_by_link_text(action.element_path)
 		elif action.element_path_type=='by_jQuery':
 			elements=driver.execute_script(action.element_path)
 	except:

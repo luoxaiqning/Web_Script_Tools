@@ -1,3 +1,0 @@
-0,	action_type,	click_button
-0,	element_path_type,	by_xpath
-0,	element_path,	//*[@id="js_CityPosition0Link"]

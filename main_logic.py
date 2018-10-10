@@ -61,6 +61,7 @@ class Main():
 
 	def Get_Action_List(self,action_step):
 		print action_step
+		action_step=action_step+'.txt'
 		file = open(action_step,'r')
 		text_list = file.readlines()
 		file.close()
@@ -84,6 +85,7 @@ class Main():
 				elif text_type=='goto_step'			:self.action_list[step_index].goto_step 		=str(text_detail)
 				elif text_type=='reference_flag'	:self.action_list[step_index].reference_flag 	=str(text_detail)
 				elif text_type=='select_type'		:self.action_list[step_index].select_type 		=str(text_detail)
+				elif text_type=='return_flag'		:self.action_list[step_index].return_flag 		=str(text_detail)
 
 	def Process_Action(self):
 		step_index = 0
@@ -92,9 +94,11 @@ class Main():
 			step_index+=1
 
 			if action.reference_flag=='elements':
+				if action.return_flag!='':self.return_contents[action.return_flag]={}
 				for element in self.elements:
 					self.Do_Action(action,element)
 			elif action.reference_flag=='element':
+				if action.return_flag!='':self.return_contents[action.return_flag]={}
 				self.Do_Action(action,self.element)
 			else:
 				self.Do_Action(action,self.driver)
@@ -135,15 +139,15 @@ class Main():
 			Tools_Pool.download_html(driver)
 
 		elif action.action_type=='get_text':
-			element=Tools_Pool.get_element(action,driver)
-			if element:Tools_Pool.get_text(element)
+			#element=Tools_Pool.get_element(action,driver)
+			if driver:Tools_Pool.get_text(driver)
 
 		elif action.action_type=='print_element':
 			if driver:Tools_Pool.print_element(driver)
 
 		elif action.action_type=='get_attribute':
-			element=Tools_Pool.get_element(action,driver)
-			if element:Tools_Pool.get_attribute(self,element,action)
+			if driver:
+				Tools_Pool.get_attribute(self,driver,action)
 
 if __name__ == "__main__":
 	main=Main()

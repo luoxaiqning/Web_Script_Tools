@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" style="padding-bottom: 72px;"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" style="padding-bottom: 0px;"><head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
     <title>
@@ -15,11 +15,11 @@
             <link href="//gf1.geo.gfsrv.net/cdn94/ada34f5369de7482fbceb44af9fd71.css" rel="stylesheet" type="text/css">
 
                 <link href="/skin/netbar.css" rel="stylesheet" type="text/css" media="screen">
-    <script src="https://s3-static.geo.gfsrv.net/cookiebanner/1.0.4/cookie.min.js"></script><style id="pseudoStyles"> .pseudoStyle1:before{background:none} .pseudoStyle2:after{background:none}</style><script src="https://s3-static.geo.gfsrv.net/cookiebanner/1.0.4/cookie.min.js"></script></head>
+    <script src="https://s3-static.geo.gfsrv.net/cookiebanner/1.0.4/cookie.min.js"></script><style id="pseudoStyles"> .pseudoStyle1:before{background:none} .pseudoStyle2:after{background:none}</style></head>
 <body id="city" class="flexible direction_ltr">
 
 
-<div id="container" style="overflow-y: hidden; width: 1024px; height: 703px;">
+<div id="container" style="overflow-y: hidden; width: 1024px; height: 600px;">
     <span class="accesshint">Ikariam</span>
     <span class="accesshint">Live the ancient world!</span>
         <div id="GF_toolbar">
@@ -60,21 +60,33 @@
                     Player details                </a>
             </li>
                 <li class="logout">
-            <a href="/index.php?action=logoutAvatar&amp;function=logout&amp;sideBarExt=0018af0406008b3ba5cebe00b44399fc1b874115c62" title="End game session">
+            <a href="/index.php?action=logoutAvatar&amp;function=logout&amp;sideBarExt=undefined" title="End game session">
                 Logout            </a>
         </li>
                 <li class="version">
             <a onclick="ajaxHandlerCall(this.href);return false;" class="noViewParameters" href="?view=version" title="Version">
                 <span title="Version">v7.9.2</span></a>
         </li>
-                    <li class="serverTime"><a><span id="servertime">30.09.2018 7:54:12</span></a>
+                    <li class="serverTime"><a><span id="servertime">08.10.2018 7:29:13</span></a>
             </li>
-        <li><script type="text/javascript">    
+        <li><script type="text/javascript">
+var mmoticker={_lines:null,_current:0,_tick:0,_timer:null,startUp:function(){container=document.getElementById('mmoNewsticker');if(!container){setTimeout(mmoticker.startUp,10);}else{mmoticker._lines=container.getElementsByTagName('li');mmoticker.ticker();}},over:function(){if(mmoticker._timer){clearTimeout(mmoticker._timer);}
+mmoticker._tick=10;mmoticker.setAlpha(mmoticker._lines[mmoticker._current],100);mmoticker._lines[mmoticker._current].style.display='block';},out:function(){mmoticker._timer=setTimeout(mmoticker.ticker,500);},ticker:function(){fade=mmoticker._tick*10;if(mmoticker._tick<0){fade=fade*-1;}
+if(mmoticker._tick==0){mmoticker._lines[mmoticker._current].style.display='none';mmoticker._current++;if(!mmoticker._lines[mmoticker._current]){mmoticker._current=0;}}
+mmoticker.setAlpha(mmoticker._lines[mmoticker._current],fade);mmoticker._lines[mmoticker._current].style.display='block';mmoticker._tick++;if(mmoticker._tick>10){if(mmoticker._lines.length>1){mmoticker._timer=setTimeout(mmoticker.ticker,3000);}
+mmoticker._tick=-10;return;}else{mmoticker._timer=setTimeout(mmoticker.ticker,50);}},setAlpha:function(el,fade){el.style.filter='Alpha(opacity='+fade+')';el.style.opacity=fade/100;el.style.MozOpacity=fade/100;el.style.KhtmlOpacity=fade/100;}}
+mmoticker.startUp();    
 </script>
 
 
+    <!-- news -->
+    <div id="mmoNewsticker" onmouseover="mmoticker.over()" onmouseout="mmoticker.out()">
+        <ul>
+                            <li style="display: block; opacity: 1;"><a target="_blank" href="https://en.bitefight.gameforge.com/game?utm_source=Netbar&amp;utm_campaign=181004_BF_Serverstart&amp;utm_medium=referral&amp;kid=5-00207-09007-1810-120271f8"><b>Bitefight:</b> New Server for Creatures of the Night</a></li>
+                    </ul>
+    </div>
 
-<!-- ikariam/en textonly 30.09.2018 07:10 -->
+<!-- ikariam/en textonly 08.10.2018 07:12 -->
 <!-- #/MMO:NETBAR# --></li>    </ul>
 </div>
     <div id="header">
@@ -99,16 +111,16 @@
             </a>
         </li>
         <li class="gold">
-            <a id="js_GlobalMenu_gold" class="noViewParameters" onclick="ajaxHandlerCall(this.href);return false;" href="?view=finances">4,854</a>
+            <a id="js_GlobalMenu_gold" class="noViewParameters" onclick="ajaxHandlerCall(this.href);return false;" href="?view=finances">41,117</a>
                     <div id="js_GlobalMenu_gold_tooltip" class="tooltip" style="line-height:13px;" updated="true">
             <table style="width:100%">
                 <tbody><tr class="altTooltip">
                     <td class="smallFont">Gold:</td>
-                    <td id="js_GlobalMenu_gold_Total" class="rightText">4,854</td>
+                    <td id="js_GlobalMenu_gold_Total" class="rightText">41,118</td>
                 </tr>
                                 <tr class="altTooltip">
                     <td class="smallFont">Income:</td>
-                    <td id="js_GlobalMenu_income" class="bold green rightText">180</td>
+                    <td id="js_GlobalMenu_income" class="bold green rightText">296</td>
                 </tr>
                 <tr class="altTooltip">
                     <td class="smallFont">Increased Gold Receipts:</td>
@@ -124,7 +136,7 @@
                 </tr>
                 <tr class="altTooltip">
                     <td class="smallFont">Total:</td>
-                    <td id="js_GlobalMenu_gold_Calculation" class="bold green rightText">180</td>
+                    <td id="js_GlobalMenu_gold_Calculation" class="bold green rightText">296</td>
                 </tr>
                                 <tr>
                     <td class="smallFont bold">
@@ -147,8 +159,8 @@
 <div id="cityResources">
     <ul class="resources">
         <li id="resources_population" class="population " title="Population">
-            <span id="js_GlobalMenu_citizens">60</span>
-            (<span id="js_GlobalMenu_population">60</span>)
+            <span id="js_GlobalMenu_citizens">98</span>
+            (<span id="js_GlobalMenu_population">98</span>)
         </li>
 
         <li id="js_GlobalMenu_maxActionPoints" class="actions" title="Action Points">3</li>
@@ -159,7 +171,7 @@
 
 
 
-        <span id="js_GlobalMenu_wood" class="">450</span>
+        <span id="js_GlobalMenu_wood" class="">2,005</span>
 
         <div id="js_GlobalMenu_wood_tooltip" class="tooltip" style="line-height:13px;" updated="true">
 
@@ -169,7 +181,7 @@
                         In the warehouse:
                     </td>
                     <td id="js_GlobalMenu_wood_Total" class="rightText">
-                        450                    </td>
+                        2,005                    </td>
                 </tr>
 
                                     <tr class="altTooltip">
@@ -185,7 +197,7 @@
                         Storage capacity Building material:
                     </td>
                     <td id="js_GlobalMenu_max_wood" class="rightText">
-                        2,500                    </td>
+                        10,500                    </td>
                 </tr>
 
 
@@ -237,7 +249,7 @@
 
 
 
-        <span id="js_GlobalMenu_wine" class="">0</span>
+        <span id="js_GlobalMenu_wine" class="">100</span>
 
         <div id="js_GlobalMenu_wine_tooltip" class="tooltip" style="line-height:13px;" updated="true">
 
@@ -247,7 +259,7 @@
                         In the warehouse:
                     </td>
                     <td id="js_GlobalMenu_wine_Total" class="rightText">
-                        0                    </td>
+                        100                    </td>
                 </tr>
 
                                     <tr class="altTooltip">
@@ -272,7 +284,7 @@
                         Storage capacity Wine:
                     </td>
                     <td id="js_GlobalMenu_max_wine" class="rightText">
-                        2,500                    </td>
+                        10,500                    </td>
                 </tr>
 
 
@@ -355,7 +367,7 @@
                         Storage capacity Marble:
                     </td>
                     <td id="js_GlobalMenu_max_marble" class="rightText">
-                        2,500                    </td>
+                        10,500                    </td>
                 </tr>
 
 
@@ -438,7 +450,7 @@
                         Storage capacity Crystal Glass:
                     </td>
                     <td id="js_GlobalMenu_max_crystal" class="rightText">
-                        2,500                    </td>
+                        10,500                    </td>
                 </tr>
 
 
@@ -521,7 +533,7 @@
                         Storage capacity Sulphur:
                     </td>
                     <td id="js_GlobalMenu_max_sulfur" class="rightText">
-                        2,500                    </td>
+                        10,500                    </td>
                 </tr>
 
 
@@ -579,7 +591,7 @@
                 <form id="changeCityForm" onsubmit="ajaxHandlerCallFromForm(this);return false;" method="post">
                     <input type="hidden" name="action" value="header">
                     <input type="hidden" name="function" value="changeCurrentCity">
-                    <input type="hidden" id="js_ChangeCityActionRequest" name="actionRequest" value="de6be64b5d8f5edbbd5c8dcb89aa9587">
+                    <input type="hidden" id="js_ChangeCityActionRequest" name="actionRequest" value="d058119339a228a264b25bbd79b8b33d">
                     <input type="hidden" name="oldView" value="city">
                     <input id="js_cityIdOnChange" type="hidden" name="cityId" value="0">
                     <div id="js_citySelectContainer" class="select_container city_select shorten_text replaced"><span class="dropDownButton ownCity coords"><a>[53:74]  Polis</a></span></div>
@@ -610,7 +622,7 @@
                 </li>
 
                 <li id="advMilitary" class="advisor_bubble" title="MILITARY">
-                    <a id="js_GlobalMenu_military" onclick="ajaxHandlerCall(this.href);return false;" href="?view=militaryAdvisor&amp;oldView=city&amp;cityId=1037121" title="Military overview" class="normal">
+                    <a id="js_GlobalMenu_military" onclick="ajaxHandlerCall(this.href);return false;" href="?view=militaryAdvisorCombatList&amp;oldView=city&amp;cityId=1037121" title="Military overview" class="normalactive">
                         <span class="smallFont">Military</span>
                     </a>
                     <a id="js_GlobalMenu_militaryPremium" class="plus_button plusteaser" onclick="ajaxHandlerCall(this.href);return false;" href="?view=premiumDetails&amp;oldView=city&amp;cityId=1037121" title="To overview"></a>
@@ -624,7 +636,7 @@
                 </li>
 
                 <li id="advDiplomacy" class="advisor_bubble" title="DIPLOMACY">
-                    <a id="js_GlobalMenu_diplomacy" onclick="ajaxHandlerCall(this.href);return false;" href="?view=diplomacyAdvisor&amp;oldView=city&amp;cityId=1037121" title="Overview of messages and diplomacy" class="normal">
+                    <a id="js_GlobalMenu_diplomacy" onclick="ajaxHandlerCall(this.href);return false;" href="?view=diplomacyAdvisor&amp;oldView=city&amp;cityId=1037121" title="Overview of messages and diplomacy" class="normalactive">
                         <span class="smallFont">Diplomacy</span>
                     </a>
                     <a id="js_GlobalMenu_diplomacyPremium" class="plus_button plusteaser" onclick="ajaxHandlerCall(this.href);return false;" href="?view=premiumDetails&amp;oldView=city&amp;cityId=1037121" title="To overview"></a>
@@ -656,16 +668,16 @@
     </div>  
 </div>
 
-<div id="worldview" onselectstart="return false" style="width: 1024px; height: 657px;">
+<div id="worldview" onselectstart="return false" style="width: 1024px; height: 554px;">
     <div id="scrollcover">
 
         <div id="worldmap" class="phase1 animated own isCapital" style="top: -130px; left: -2068px; transform: scale(1);">
             <div id="locations" style="z-index: 200;">
-                                    <div id="position0" class="position0 building townHall level1">
+                                    <div id="position0" class="position0 building townHall level3">
                         <div id="js_CityPosition0Img" class="buildingimg img_pos animated"><div class="animation flag_position flagRedBig animation_16steps" style="-webkit-animation-delay: 0s; -moz-animation-delay: 0s; -ms-animation-delay: 0s;"></div></div>
 
                                                 <div class="hover img_pos invisible"></div>
-                        <a id="js_CityPosition0Link" class="hoverable" onclick="ajaxHandlerCall(this.href);return false;" href="?view=townHall&amp;cityId=1037121&amp;position=0" title="Town Hall (1)"></a>
+                        <a id="js_CityPosition0Link" class="hoverable" onclick="ajaxHandlerCall(this.href);return false;" href="?view=townHall&amp;cityId=1037121&amp;position=0" title="Town Hall (3)"></a>
                         
 
 
@@ -798,11 +810,11 @@
                         <div class="after"></div>
                     </div>
 
-                                    <div id="position5" class="position5 building buildingGround land">
-                        <div id="js_CityPosition5Img" class="buildingimg img_pos animated"><div class="animation flag_position animation_16steps flagRedBig" style="-webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s; -ms-animation-delay: 0.5s;"></div></div>
+                                    <div id="position5" class="position5 building warehouse level1">
+                        <div id="js_CityPosition5Img" class="buildingimg img_pos animated"></div>
 
                                                 <div class="hover img_pos invisible"></div>
-                        <a id="js_CityPosition5Link" class="hoverable" onclick="ajaxHandlerCall(this.href);return false;" href="?view=buildingGround&amp;cityId=1037121&amp;position=5" title="Free Building Ground"></a>
+                        <a id="js_CityPosition5Link" class="hoverable" onclick="ajaxHandlerCall(this.href);return false;" href="?view=warehouse&amp;cityId=1037121&amp;position=5" title="Warehouse (1)"></a>
                         
 
 
@@ -819,7 +831,7 @@
 
                     <div id="js_CityPosition5Scroll" style="cursor:pointer;" class="invisible position5 cityScroll timetofinish">
                         <div class="before"></div>
-                        <div id="js_CityPosition5ScrollName"></div>
+                        <div id="js_CityPosition5ScrollName" class="green"></div>
                         <div class="after"></div>
                     </div>
 
@@ -848,11 +860,11 @@
                         <div class="after"></div>
                     </div>
 
-                                    <div id="position7" class="position7 building buildingGround land">
-                        <div id="js_CityPosition7Img" class="buildingimg img_pos animated"><div class="animation flag_position animation_16steps flagRedBig" style="-webkit-animation-delay: 0.7000000000000001s; -moz-animation-delay: 0.7000000000000001s; -ms-animation-delay: 0.7000000000000001s;"></div></div>
+                                    <div id="position7" class="position7 building academy level2">
+                        <div id="js_CityPosition7Img" class="buildingimg img_pos animated"></div>
 
                                                 <div class="hover img_pos invisible"></div>
-                        <a id="js_CityPosition7Link" class="hoverable" onclick="ajaxHandlerCall(this.href);return false;" href="?view=buildingGround&amp;cityId=1037121&amp;position=7" title="Free Building Ground"></a>
+                        <a id="js_CityPosition7Link" class="hoverable" onclick="ajaxHandlerCall(this.href);return false;" href="?view=academy&amp;cityId=1037121&amp;position=7" title="Academy (2)"></a>
                         
 
 
@@ -869,7 +881,7 @@
 
                     <div id="js_CityPosition7Scroll" style="cursor:pointer;" class="invisible position7 cityScroll timetofinish">
                         <div class="before"></div>
-                        <div id="js_CityPosition7ScrollName"></div>
+                        <div id="js_CityPosition7ScrollName" class="green"></div>
                         <div class="after"></div>
                     </div>
 
@@ -1189,7 +1201,7 @@
                                 <div id="dolphinPos1" class="dolphin" style="display: none;"></div>
                 <div id="dolphinPos2" class="animation dolphin"></div>
                 <div id="dolphinPos3" class="dolphin" style="display: none;"></div>
-                <div id="dolphinPos4" class="animation dolphin"></div>
+                <div id="dolphinPos4" class="dolphin" style="display: none;"></div>
 
                                 <div class="animation animatedWell"></div>
                 <div class="animation animatedRiverPart1"></div>
@@ -1202,7 +1214,7 @@
 
                 <div id="pirateFortressBackground" class="invisible"></div>
                 <div id="pirateFortressShip" class="invisible"></div>
-                <div id="walkers"></div>
+                <div id="walkers"><div class="animation_populationNew_12steps not_selectable populationNew populationNewSO" id="populationChange" style="animation-delay: 0ms; z-index: 299; top: 455.386px; left: 784.053px;" updated="true"><div class="tooltip" updated="true">I want to live here!</div></div><div class="animation_bird_12steps not_selectable bird birdN" id="bird5" style="animation-delay: 0ms; z-index: 350; top: 97.3645px; left: 1703.07px;"></div><div class="animation_bird_12steps not_selectable bird birdN" id="bird6" style="animation-delay: 0ms; z-index: 350; top: 110.329px; left: 1652.07px;"></div><div class="animation_citizen2_12steps not_selectable citizen2 citizen2SW" id="walkerAmbience29" style="animation-delay: 0ms; z-index: 310; top: 595.147px; left: 677.34px;" updated="true"><div class="tooltip">Life`s good in this town!</div></div><div class="animation_citizen2_12steps not_selectable citizen2 citizen2SW" id="walkerAmbience28" style="animation-delay: 0ms; z-index: 310; top: 575.688px; left: 717.324px;" updated="true"><div class="tooltip">A bit of fresh air will do me good!</div></div></div>
                 <a id="cityRegistrationGifts" class="" onclick="ajaxHandlerCall('?view=registrationGifts');return false;"></a>
                 <a id="cityDailyTasks" class="invisible" onclick="ajaxHandlerCall('?view=dailyTasks');return false;">
                     <div id="cityDailyTasksArrow" class="invisible"></div>
@@ -1255,7 +1267,7 @@ setPixel ({
 'user-id':'665257',
 'user-email':'luoxianqing@outlook.com',
 'user-name':'Orpheus-2988',
-'last_login':'2018-09-30T07:49:38+0200'
+'last_login':'2018-10-08T05:49:36+0200'
 });
 </script><div id="emailValidationReminderButton" style="display: none"></div>
         <div id="leftMenu">
@@ -1382,7 +1394,7 @@ setPixel ({
 
 
 <div id="loadingPreview" style="display: none;"></div>
-<div id="tutorialAdvisor"><div id="advisorImage" class="cityAdvisor lighten" style="display: block;"></div><a id="tutorialAdvisorLink" title="Tutorial"></a><div id="js_tutorialArrow" class="aniArrow" style="top: 47.1736px; display: block;"></div></div><div id="multiPopup" class="popupMessage"></div><div id="dropDown_js_citySelectContainer" class="dropdownContainer city_select shorten_text" style="height: 32px; width: 177px; top: 98px; left: 174px; display: none;"><div class="bg" style="height: 32px; margin-top: 0px; width: 177px;"><ul style="width: 177px;"><li selectvalue="1037121" class="ownCity coords first-child last-child"><a> [53:74]  Polis</a></li></ul></div><div class="scrollArea"><div class="scrollArrowTop"></div><div class="dropdownScroller"></div><div class="scrollArrowBottom"></div></div></div></div><div><iframe frameborder="0" style="width: 0px; height: 0px; display: block; border: none;"></iframe><iframe frameborder="0" style="width: 0px; height: 0px; display: block; border: none;"></iframe></div> 
+<div id="tutorialAdvisor"><div id="advisorImage" class="researchAdvisor lighten" style="display: block;"></div><a id="tutorialAdvisorLink" title="Tutorial"></a><div id="js_tutorialArrow" class="aniArrow" style="top: 30.6795px; display: block;"></div></div><div id="multiPopup" class="popupMessage"></div><div id="dropDown_js_citySelectContainer" class="dropdownContainer city_select shorten_text" style="height: 32px; width: 177px; top: 98px; left: 174px; display: none;"><div class="bg" style="height: 32px; margin-top: 0px; width: 177px;"><ul style="width: 177px;"><li selectvalue="1037121" class="ownCity coords first-child last-child"><a> [53:74]  Polis</a></li></ul></div><div class="scrollArea"><div class="scrollArrowTop"></div><div class="dropdownScroller"></div><div class="scrollArrowBottom"></div></div></div></div><div><iframe frameborder="0" style="width: 0px; height: 0px; display: block; border: none;"></iframe><iframe frameborder="0" style="width: 0px; height: 0px; display: block; border: none;"></iframe></div> 
     <script type="text/javascript">
         console = {
             log: function () {
@@ -1392,11 +1404,10 @@ setPixel ({
         };
     </script>
     
-            <script type="text/javascript" src="//gf2.geo.gfsrv.net/cdn4a/60212c7a0b13172a5c87604541eb11.js"></script>
-    <script type="text/javascript" src="//gf1.geo.gfsrv.net/cdnfe/e6005fb6d8234a4fe31290fcaa01f3.js"></script><div id="cookie_container" style="position: fixed; font-size: 16px; line-height: 1.5em; overflow: hidden; box-sizing: border-box;  display: flex;-ms-flex-wrap: nowrap;  flex-wrap: nowrap;-ms-flex-direction: row;flex-direction: row;z-index: 9999; bottom:0; left: 0; width: 100%; color: rgb(255, 255, 255);-ms-flex-align: center; align-items: center; background-color: rgb(0, 168, 255); font-family: Helvetica,Calibri,Arial,sans-serif; padding: 1em 1.4em; "><span style=" -ms-flex: 1; flex: 1; padding-right: 20px;color: white;">Gameforge’s websites use cookies. By continuing to use this site you agree to the use of cookies. More information and the option to delete existing cookies can be found in our <a id="cookie_link" style=" display: inline-block; cursor: pointer; text-decoration: underline; opacity: .8; color: white; ">Cookie Policy</a>.</span><div style="display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center;-ms-flex-line-pack: justify; align-content: space-between; "><a id="accept_btn" style="display: block;min-width: 140px; color: rgb(0, 168, 255);border-color: transparent; background-color: rgb(255, 255, 255);padding: .4em .8em; font-size: .9em; font-weight: 700; cursor: pointer; border-width: 2px; border-style: solid; text-align: center;  white-space: nowrap;-ms-flex: 1; flex: 1;">Understood</a></div></div>
+            <script type="text/javascript" src="//gf2.geo.gfsrv.net/cdn4a/60212c7a0b13172a5c87604541eb11.js"></script><div id="cookie_container" style="position: fixed; font-size: 16px; line-height: 1.5em; overflow: hidden; box-sizing: border-box; display: none; flex-flow: row nowrap; z-index: 9999; bottom: 0px; left: 0px; width: 100%; color: rgb(255, 255, 255); align-items: center; background-color: rgb(0, 168, 255); font-family: Helvetica, Calibri, Arial, sans-serif; padding: 1em 1.4em; opacity: -0.1;"><span style=" -ms-flex: 1; flex: 1; padding-right: 20px;color: white;">Gameforge websites make use of cookies. By continuing to use this website, you agree to the use of cookies. Read our <a id="cookie_link" style=" display: inline-block; cursor: pointer; text-decoration: underline; opacity: .8; color: white; ">Cookie Policy</a> for more information and the option to delete stored cookies.</span><div style="display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center;-ms-flex-line-pack: justify; align-content: space-between; "><a id="accept_btn" style="display: block;min-width: 140px; color: rgb(0, 168, 255);border-color: transparent; background-color: rgb(255, 255, 255);padding: .4em .8em; font-size: .9em; font-weight: 700; cursor: pointer; border-width: 2px; border-style: solid; text-align: center;  white-space: nowrap;-ms-flex: 1; flex: 1;" class="">Understood</a></div></div>
+    <script type="text/javascript" src="//gf1.geo.gfsrv.net/cdnfe/e6005fb6d8234a4fe31290fcaa01f3.js"></script>
     <script type="text/javascript" src="//gf3.geo.gfsrv.net/cdn88/967de3d7ae71ff15e5abf4e2b95d4f.js"></script>
 
-    <script type="text/javascript" src="https://pixelzirkus.gameforge.com/functions.js"></script>
 
 <div id="neoDauPixelContainer"></div>
 <script type="text/javascript">
@@ -1425,7 +1436,7 @@ setPixel ({
     /* initialize tutorial if required */
     tutorialData = null;
 
-        var questData = JSON.parse('{\"questId\":20,\"highlightTutorialAdvisor\":true,\"questText\":\"Next we`ll secure your supply of the basic building material resource.\",\"questSteps\":[\"Click on `show island` and go to the saw mill\",\"Employ 10 villagers as workers there to produce building material\",\"Return to the town overview afterwards\"],\"questReward\":{\"resources\":[200]},\"advisorImage\":\"cityAdvisor\",\"hand\":\"tutorialAdvisor\",\"questShowImmediately\":false,\"handSwitchData\":null,\"hideTutorialAdvisor\":false}');
+        var questData = JSON.parse('{\"questId\":40,\"highlightTutorialAdvisor\":true,\"questText\":\"To research new technology, you will need villagers working as scientists to produce more research points for you.\",\"questSteps\":[\"Visit your academy now\",\"Hire 8 villagers as scientists there\"],\"questReward\":{\"researchPoints\":22},\"advisorImage\":\"researchAdvisor\",\"hand\":\"tutorialAdvisor\",\"questShowImmediately\":false,\"handSwitchData\":null,\"hideTutorialAdvisor\":false}');
     var questConstants = JSON.parse('{\"transporter\":\"Merchant Ship\",\"researchPoints\":\"Research Points\",\"gold\":\"Gold\",\"premiumCurrency\":\"Ambrosia\",\"header\":{\"quest\":\"As a reward you will receive\",\"hint\":\"Hint:\"},\"upgrade\":{\"7\":[\"warehouse\",\"Warehouse level 2\"],\"0\":[\"townhall\",\"Town hall level 2\"],\"6\":[\"barracks\",\"Barracks level 2\"],\"4\":[\"academy\",\"Academy level 2\"],\"8\":[\"wall\",\"Wall level 2\"]},\"resources\":[[\"wood\",\"Building material\"],[\"wine\",\"Wine\"],[\"marble\",\"Marble\"],[\"crystal\",\"Crystal Glass\"],[\"sulfur\",\"Sulphur\"]],\"military\":{\"315\":[\"spearman\",\"Spearman\"]},\"headline\":{\"quest\":\"Tutorial\",\"reward\":\"Mission fulfilled\"}}');
 
         var showDisableCheckbox = true;
@@ -1433,10 +1444,10 @@ setPixel ({
     tutorialData = {
         questData: questData,
         questConstants: questConstants,
-        defaultClass: "cityAdvisor",
+        defaultClass: "researchAdvisor",
         checkboxText: "I do not need the tutorial.",
         btnText: "OK",
-        advisorClass: 'cityAdvisor',
+        advisorClass: 'researchAdvisor',
         capitalId: 1037121,
         displayTutorialAdvisor: false, /* nicht mehr benoetigt, noch altes System. bei Gelegenheit Uebergabe hier entfernen */
         displayQuestPopup: true,
@@ -1485,7 +1496,7 @@ setPixel ({
         /* the avatar's ally id */
         avatarAllyId: '0',
         /* the server time on reload */
-        serverTime: "1538286840",
+        serverTime: "1538976497",
         realHour: 3600,
         dateTimeFormat: "d.m.Y G:i:s",
         serverTimezoneOffset: 7200,
@@ -1496,9 +1507,9 @@ setPixel ({
         /* the luxury tradegood produced on current island */
         producedTradegood: "1",
         /* the player's current resource values in city */
-        currentResources: JSON.parse('{\"citizens\":60,\"population\":60,\"resource\":450,\"2\":0,\"1\":0,\"4\":0,\"3\":0}'),
+        currentResources: JSON.parse('{\"citizens\":98.749818127139,\"population\":98.749818127139,\"resource\":2005,\"2\":0,\"1\":100,\"4\":0,\"3\":0}'),
         /* the maximum of resources that can be stored in city */
-        maxResources: JSON.parse('{\"resource\":2500,\"0\":2500,\"1\":2500,\"2\":2500,\"3\":2500,\"4\":2500}'),
+        maxResources: JSON.parse('{\"resource\":10500,\"0\":10500,\"1\":10500,\"2\":10500,\"3\":10500,\"4\":10500}'),
         /* the resources offered for sell in branch office */
         branchOfficeResources: JSON.parse('{\"resource\":0,\"1\":0,\"2\":0,\"3\":0,\"4\":0}'),
         /* the wood production amount in current city */
@@ -1509,7 +1520,7 @@ setPixel ({
         wineSpendings: 0,
         wineTickInterval: 3600,
         upkeep: -0,
-        income: 180,
+        income: 296,
         badTaxAccountant: 0,
         scientistsUpkeep: -0,
         /* the language direction ("rtl" or "ltr") */
@@ -1530,7 +1541,7 @@ setPixel ({
         /* the island shortcuts for map navigation*/
         shortcuts: islandShortcuts,
         /* the last action request, used as one click token */
-        actionRequest: "de6be64b5d8f5edbbd5c8dcb89aa9587",
+        actionRequest: "d058119339a228a264b25bbd79b8b33d",
         /* some infos for displaying the title tag */
         nextETA: 0,
         breadcrumbsWorldlinkText: 'World',
@@ -1552,7 +1563,7 @@ setPixel ({
         /* all relevant data to each related city (own, occupied, allied): the id, name, coords and produced tradegood. needed to update the global city dropdown menu. */
         relatedCityData: JSON.parse('{\"city_1037121\":{\"id\":1037121,\"name\":\"Polis\",\"coords\":\"[53:74] \",\"tradegood\":\"1\",\"relationship\":\"ownCity\"},\"additionalInfo\":\"cityCoords\",\"selectedCity\":\"city_1037121\"}'),
         /* all relevant data to display the 4 advisors (highlights, alerts, links, premium ad) */
-        advisorData: JSON.parse('{\"military\":{\"link\":\"?view=militaryAdvisor&oldView=city&cityId=1037121\",\"cssclass\":\"normal\",\"premiumlink\":\"?view=premiumDetails&oldView=city&cityId=1037121\"},\"cities\":{\"cssclass\":\"normalactive\",\"link\":\"?view=tradeAdvisor&oldView=city&cityId=1037121\",\"premiumlink\":\"?view=premiumDetails&oldView=city&cityId=1037121\"},\"research\":{\"cssclass\":\"normal\",\"link\":\"?view=researchAdvisor&oldView=city&cityId=1037121\",\"premiumlink\":\"?view=premiumDetails&oldView=city&cityId=1037121\"},\"diplomacy\":{\"cssclass\":\"normal\",\"link\":\"?view=diplomacyAdvisor&oldView=city&cityId=1037121\",\"premiumlink\":\"?view=premiumDetails&oldView=city&cityId=1037121\"},\"hasPremiumAccount\":false}'),
+        advisorData: JSON.parse('{\"military\":{\"link\":\"?view=militaryAdvisorCombatList&oldView=city&cityId=1037121\",\"cssclass\":\"normalactive\",\"premiumlink\":\"?view=premiumDetails&oldView=city&cityId=1037121\"},\"cities\":{\"cssclass\":\"normalactive\",\"link\":\"?view=tradeAdvisor&oldView=city&cityId=1037121\",\"premiumlink\":\"?view=premiumDetails&oldView=city&cityId=1037121\"},\"research\":{\"cssclass\":\"normal\",\"link\":\"?view=researchAdvisor&oldView=city&cityId=1037121\",\"premiumlink\":\"?view=premiumDetails&oldView=city&cityId=1037121\"},\"diplomacy\":{\"cssclass\":\"normalactive\",\"link\":\"?view=diplomacyAdvisor&oldView=city&cityId=1037121\",\"premiumlink\":\"?view=premiumDetails&oldView=city&cityId=1037121\"},\"hasPremiumAccount\":false}'),
 
         isIPhone: 0,
 
@@ -1562,7 +1573,7 @@ setPixel ({
 
         lightVersion: 0,
 
-        heavyVersion: '0018af0406008b3ba5cebe00b44399fc1b874115c62',
+        heavyVersion: '',
 
         mapNativeScrolling: 0,
 
@@ -1653,7 +1664,7 @@ setPixel ({
 
     </script>        <script type="text/javascript">
             $(document).ready(function () {
-                ikariam.getClass(ajax.Responder, [["updateBackgroundData",{"name":"Polis","id":"1037121","phase":1,"isCapital":true,"ownerId":"665257","ownerName":"Orpheus-2988","islandId":"1013","islandName":"Lyeutia","islandXCoord":"53","islandYCoord":"74","buildingSpeedupActive":1,"showPirateFortressBackground":0,"showPirateFortressShip":0,"lockedPosition":{"13":"In order to build here, you must research bureaucracy","17":""},"underConstruction":-1,"endUpgradeTime":-1,"startUpgradeTime":-1,"position":[{"name":"Town Hall","level":"1","isBusy":false,"canUpgrade":true,"isMaxLevel":false,"building":"townHall"},{"building":"buildingGround shore"},{"building":"buildingGround shore"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround wall"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround sea"},{"building":"buildingGround land"}],"registrationGifts":"visible","beachboys":"visible","spiesInside":null,"cityLeftMenu":{"visibility":{"military":1,"espionage":0,"resourceShop":1,"slot1":1,"slot2":1,"slot3":0,"slot4":0},"ownCity":1},"ambrosiaFountain":"fountain_inactive","walkers":{"add":[]},"displayStaticPlague":false,"dailyTasks":"0","cityCinema":"active","flyingTrader":{"link":{"onclick":"ajaxHandlerCall(this.href);return false;","href":"?view=premium&linkType=3","tooltip":"Shop"},"banner":""}}],["updateTemplateData",""],["popupData",null],["ingameCounterData",null],["removeIngameCounterData",null],["updateBacklink",null]]);
+                ikariam.getClass(ajax.Responder, [["updateBackgroundData",{"name":"Polis","id":"1037121","phase":1,"isCapital":true,"ownerId":"665257","ownerName":"Orpheus-2988","islandId":"1013","islandName":"Lyeutia","islandXCoord":"53","islandYCoord":"74","buildingSpeedupActive":1,"showPirateFortressBackground":0,"showPirateFortressShip":0,"lockedPosition":{"13":"In order to build here, you must research bureaucracy","17":""},"underConstruction":-1,"endUpgradeTime":-1,"startUpgradeTime":-1,"position":[{"name":"Town Hall","level":"3","isBusy":false,"canUpgrade":true,"isMaxLevel":false,"building":"townHall"},{"building":"buildingGround shore"},{"building":"buildingGround shore"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"name":"Warehouse","level":"1","isBusy":false,"canUpgrade":true,"isMaxLevel":false,"building":"warehouse"},{"building":"buildingGround land"},{"name":"Academy","level":"2","isBusy":false,"canUpgrade":true,"isMaxLevel":false,"building":"academy"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround wall"},{"building":"buildingGround land"},{"building":"buildingGround land"},{"building":"buildingGround sea"},{"building":"buildingGround land"}],"registrationGifts":"visible","beachboys":"visible","spiesInside":null,"cityLeftMenu":{"visibility":{"military":1,"espionage":0,"resourceShop":1,"slot1":1,"slot2":1,"slot3":0,"slot4":0},"ownCity":1},"ambrosiaFountain":"fountain_inactive","walkers":{"add":[["walkerAmbience28","walkers",[[454,541,"none","310",1538976506,"citizen2"],[454,541,"SO","310",1538976506,"citizen2"],[490,560,"SO","310",1538976509,"citizen2"],[534,545,"O","310",1538976512,"citizen2"],[593,590,"SO","310",1538976517,"citizen2"],[631,618,"SO","310",1538976520,"citizen2"],[704,582,"NO","310",1538976525,"citizen2"],[761,555,"NO","310",1538976530,"citizen2"],[823,522,"NO","299",1538976534,"citizen2"],[861,505,"NO","299",1538976537,"citizen2"],[861,462,"N","310",1538976540,"citizen2"],[861,505,"S","310",1538976543,"citizen2"],[823,522,"SW","299",1538976546,"citizen2"],[761,555,"SW","299",1538976550,"citizen2"],[704,582,"SW","310",1538976555,"citizen2"],[631,618,"SW","310",1538976560,"citizen2"],[593,590,"NW","310",1538976563,"citizen2"],[534,545,"NW","310",1538976568,"citizen2"],[490,560,"W","310",1538976571,"citizen2"],[454,541,"NW","310",1538976574,"citizen2"]],1538976497,"A bit of fresh air will do me good!",1538976574,0],["walkerAmbience29","walkers",[[454,541,"none","310",1538976503,"citizen2"],[454,541,"SO","310",1538976503,"citizen2"],[490,560,"SO","310",1538976506,"citizen2"],[534,545,"O","310",1538976509,"citizen2"],[593,590,"SO","310",1538976514,"citizen2"],[631,618,"SO","310",1538976517,"citizen2"],[704,582,"NO","310",1538976522,"citizen2"],[761,555,"NO","310",1538976527,"citizen2"],[823,522,"NO","299",1538976531,"citizen2"],[861,505,"NO","299",1538976534,"citizen2"],[861,462,"N","310",1538976537,"citizen2"],[861,505,"S","310",1538976540,"citizen2"],[823,522,"SW","299",1538976543,"citizen2"],[761,555,"SW","299",1538976547,"citizen2"],[704,582,"SW","310",1538976552,"citizen2"],[631,618,"SW","310",1538976557,"citizen2"],[593,590,"NW","310",1538976560,"citizen2"],[534,545,"NW","310",1538976565,"citizen2"],[490,560,"W","310",1538976568,"citizen2"],[454,541,"NW","310",1538976571,"citizen2"]],1538976497,"Life`s good in this town!",1538976571,0],["bird3","walkers",[[45,582,"none","350",1538976497,"bird"],[45,582,"O","350",1538976497,"bird"],[45,582,"O","350",1538976497,"bird"],[1677,591,"O","350",1538976540,"bird"],[1710,118,"N","350",1538976553,"bird"]],1538976497,"",1538976553,0],["bird4","walkers",[[35,574,"none","350",1538976497,"bird"],[35,574,"O","350",1538976497,"bird"],[35,574,"O","350",1538976497,"bird"],[1667,583,"O","350",1538976540,"bird"],[1700,110,"N","350",1538976553,"bird"]],1538976497,"",1538976553,0],["bird5","walkers",[[39,548,"none","350",1538976498,"bird"],[39,548,"O","350",1538976498,"bird"],[1671,557,"O","350",1538976541,"bird"],[1704,84,"N","350",1538976554,"bird"]],1538976497,"",1538976554,0],["bird6","walkers",[[-12,561,"none","350",1538976498,"bird"],[-12,561,"O","350",1538976498,"bird"],[1620,570,"O","350",1538976541,"bird"],[1653,97,"N","350",1538976554,"bird"]],1538976497,"",1538976554,0],["populationChange","walkers",[[124,-35,"none","299",1538976497,"populationNew"],[124,-35,"SO","299",1538976497,"populationNew"],[175,27,"SO","299",1538976502,"populationNew"],[253,73,"SO","299",1538976508,"populationNew"],[279,119,"SO","299",1538976512,"populationNew"],[326,142,"SO","299",1538976516,"populationNew"],[419,197,"SO","299",1538976523,"populationNew"],[442,244,"SO","299",1538976526,"populationNew"],[499,275,"SO","299",1538976531,"populationNew"],[526,290,"SO","310",1538976533,"populationNew"],[552,304,"SO","310",1538976535,"populationNew"],[560,337,"S","299",1538976537,"populationNew"],[789,458,"SO","299",1538976554,"populationNew"],[869,476,"O","310",1538976560,"populationNew"]],1538976497,"I want to live here!",1538976560,0]]},"displayStaticPlague":false,"dailyTasks":"0","cityCinema":"active","flyingTrader":{"link":{"onclick":"ajaxHandlerCall(this.href);return false;","href":"?view=premium&linkType=3","tooltip":"Shop"},"banner":""}}],["updateTemplateData",""],["popupData",null],["ingameCounterData",null],["removeIngameCounterData",null],["updateBacklink",null]]);
             });
         </script>
         
