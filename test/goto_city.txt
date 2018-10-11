@@ -1,8 +1,0 @@
-0#	action_type#	click_button
-0#	element_path_type#	by_xpath
-0#	element_path#	//*[@id="js_citySelectContainer"]/span
-0#	sleep_time#	2
-
-1#	action_type#	click_button
-1#	element_path_type#	by_xpath
-1#	element_path#	//li[@selectvalue="770534"]

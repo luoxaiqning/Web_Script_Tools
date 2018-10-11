@@ -1,0 +1,16 @@
+0#	action_type#	open_page
+0#	url#		E:\Web_Script_Tools\test\html.html
+
+1#	action_type#	find_elements
+1#	element_path_type#	by_xpath
+1#	element_path#	//li[@selectvalue]
+
+2#	action_type#	get_attribute
+2#	reference_flag#	elements
+2#	contents#		textContent
+2#	return_flag#	city_name
+
+3#	action_type#	get_attribute
+3#	reference_flag#	elements
+3#	contents#		selectvalue
+3#	return_flag#	city_id

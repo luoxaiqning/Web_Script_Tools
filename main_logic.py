@@ -33,13 +33,13 @@ class Main():
 		firefoxProfile=FirefoxProfile() 								# 	
 		#firefoxProfile.set_preference('permissions.default.image',2)	# 
 		#self.driver=webdriver.Firefox(firefoxProfile)
-		self.headless_flag	=False
+		self.headless_flag	=True
 		self.noimg_flag 	=False
 		chrome_options=Options()
 		if self.headless_flag:chrome_options.add_argument('--headless')
 		if self.noimg_flag:   chrome_options.add_experimental_option("prefs",{"profile.managed_default_content_settings.images":2})
 		self.driver=webdriver.Chrome(chrome_options=chrome_options)
-		#self.driver.set_page_load_timeout(60)
+		self.driver.set_page_load_timeout(30)
 		#self.driver.set_window_size(500,500)
 
 		self.element=''
@@ -60,19 +60,23 @@ class Main():
 		#return self.driver
 
 	def Get_Action_List(self,action_step):
+		self.element=''
+		self.elements={}
+		self.return_contents={}
 		print action_step
 		action_step=action_step+'.txt'
 		file = open(action_step,'r')
 		text_list = file.readlines()
 		file.close()
-		text_index=0
-		step_index=0
+		text_index='0'
+		step_index='0'
 		self.action_list={}
+		self.action_list[step_index]=Action_List()
 		for text in text_list:
 			text=text.replace('\n','')
 			if text!='':
 				text_index,text_type,text_detail=text.replace('\t','').replace(' ','').split('#')
-				if text_index>step_index:
+				if int(text_index)>int(step_index):
 					step_index=text_index
 					self.action_list[step_index]=Action_List()
 				if   text_type=='action_type'	   	:self.action_list[step_index].action_type		=str(text_detail)
@@ -90,6 +94,7 @@ class Main():
 	def Process_Action(self):
 		step_index = 0
 		while step_index < len(self.action_list):
+			print step_index
 			action=self.action_list[str(step_index)]
 			step_index+=1
 
@@ -107,7 +112,7 @@ class Main():
 	def Do_Action(self,action,driver):
 		print 'action_type:',action.action_type
 		if   action.action_type=='open_page':
-			Tools_Pool.open_url(action,driver)
+			Tools_Pool.open_url(action.url,driver)
 
 		if   action.action_type=='find_element':
 			self.element=Tools_Pool.get_element(action,driver)
@@ -148,9 +153,10 @@ class Main():
 		elif action.action_type=='get_attribute':
 			if driver:
 				Tools_Pool.get_attribute(self,driver,action)
-
+'''
 if __name__ == "__main__":
 	main=Main()
 	main.run()
 	print 'mark'
 	#main.driver.quit()
+'''

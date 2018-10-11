@@ -94,8 +94,8 @@ def get_elements(action,driver):
 		return False
 	return elements
 
-def open_url(action,driver):
+def open_url(url,driver):
 	try:
-		driver.get(action.url)
+		driver.get(url)
 	except TimeoutException:
 		print 'page stop'

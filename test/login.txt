@@ -36,3 +36,22 @@
 8#	action_type#	click_button
 8#	element_path_type#	by_xpath
 8#	element_path#	//*[@id="accept_btn"]
+
+9#	action_type#	click_button
+9#	element_path_type#	by_xpath
+9#	element_path#	//*[@id="js_citySelectContainer"]/span
+9#	sleep_time#	2
+
+10#	action_type#	find_elements
+10#	element_path_type#	by_xpath
+10#	element_path#	//li[@selectvalue]
+
+11#	action_type#	get_attribute
+11#	reference_flag#	elements
+11#	contents#		selectvalue
+11#	return_flag#	city_id
+
+12#	action_type#	get_attribute
+12#	reference_flag#	elements
+12#	contents#		textContent
+12#	return_flag#	city_name
