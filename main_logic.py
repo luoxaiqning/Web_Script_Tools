@@ -39,7 +39,7 @@ class Main():
 		if self.headless_flag:chrome_options.add_argument('--headless')
 		if self.noimg_flag:   chrome_options.add_experimental_option("prefs",{"profile.managed_default_content_settings.images":2})
 		self.driver=webdriver.Chrome(chrome_options=chrome_options)
-		self.driver.set_page_load_timeout(30)
+		#self.driver.set_page_load_timeout(30)
 		#self.driver.set_window_size(500,500)
 
 		self.element=''
@@ -94,7 +94,6 @@ class Main():
 	def Process_Action(self):
 		step_index = 0
 		while step_index < len(self.action_list):
-			print step_index
 			action=self.action_list[str(step_index)]
 			step_index+=1
 
