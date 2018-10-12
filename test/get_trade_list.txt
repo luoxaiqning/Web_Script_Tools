@@ -1,5 +1,4 @@
-0#	action_type#	open_page
-0#	url#		E:\Web_Script_Tools\test\html1.html
+0#	action_type#	download_html
 
 1#	action_type#	find_elements
 1#	element_path_type#	by_xpath

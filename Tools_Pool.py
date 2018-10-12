@@ -27,10 +27,11 @@ def download_html(driver):
 	file=open('html.html','w')
 	file.write(html)
 	file.close()
-
+'''
 def print_element(element):
 	print element.get_attribute('innerHTML')
-
+	self.return_contents[action.return_flag][len(self.return_contents[action.return_flag])]=element.get_attribute('innerHTML')
+'''
 def get_attribute(self,element,action):
 	self.return_contents[action.return_flag][len(self.return_contents[action.return_flag])]=element.get_attribute(action.contents)
 
@@ -96,6 +97,8 @@ def get_elements(action,driver):
 
 def open_url(url,driver):
 	try:
+		print url
 		driver.get(url)
 	except TimeoutException:
 		print 'page stop'
+

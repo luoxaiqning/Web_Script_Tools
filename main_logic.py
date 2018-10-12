@@ -25,6 +25,7 @@ class Action_List():
 	url 				=''
 	identify_flag 		=''
 	select_type 		=''
+	return_flag 		=''
 	
 		
 
@@ -145,9 +146,6 @@ class Main():
 		elif action.action_type=='get_text':
 			#element=Tools_Pool.get_element(action,driver)
 			if driver:Tools_Pool.get_text(driver)
-
-		elif action.action_type=='print_element':
-			if driver:Tools_Pool.print_element(driver)
 
 		elif action.action_type=='get_attribute':
 			if driver:
