@@ -6,7 +6,7 @@ import random
 import traceback
 import Tools_Pool
 from selenium import webdriver
-from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+#from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver import ActionChains
 from selenium.common.exceptions import TimeoutException
 
@@ -31,7 +31,7 @@ class Action_List():
 
 class Main():
 	def __init__(self):
-		firefoxProfile=FirefoxProfile() 								# 	
+		#firefoxProfile=FirefoxProfile() 								# 	
 		#firefoxProfile.set_preference('permissions.default.image',2)	# 
 		#self.driver=webdriver.Firefox(firefoxProfile)
 		self.headless_flag	=True
@@ -49,7 +49,7 @@ class Main():
 	
 	def run(self):
 		try:
-			self.Get_Action_List('test1.txt')
+			self.Get_Action_List('test1')
 			self.Process_Action()
 			if self.headless_flag:
 				self.driver.quit()
@@ -58,6 +58,7 @@ class Main():
 			self.driver.quit()
 			print 'error'
 			print traceback.print_exc()
+		print self.return_contents
 		#return self.driver
 
 	def Get_Action_List(self,action_step):
@@ -150,10 +151,11 @@ class Main():
 		elif action.action_type=='get_attribute':
 			if driver:
 				Tools_Pool.get_attribute(self,driver,action)
-'''
+
 if __name__ == "__main__":
-	main=Main()
-	main.run()
-	print 'mark'
-	#main.driver.quit()
-'''
+	try:
+		main=Main()
+		main.run()
+	except:
+		print traceback.print_exc()
+	main.driver.quit()

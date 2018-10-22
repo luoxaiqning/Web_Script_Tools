@@ -1,4 +1,11 @@
 0#	action_type#	open_page
-0#	url#		https://en.ikariam.gameforge.com
+0#	url#		http://cn.bing.com
 
-1#	action_type#	download_html
+1#	action_type#	find_element
+1#	element_path_type#	by_text
+1#	element_path#	Office Online
+
+2#	action_type#	get_attribute
+2#	reference_flag#	element
+2#	contents#		innerHTML
+2#	return_flag#	a

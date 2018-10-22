@@ -1,0 +1,44 @@
+0#	action_type#	find_element
+0#	element_path_type#	by_id
+0#	element_path#	js_GlobalMenu_wood
+
+1#	action_type#	get_attribute
+1#	reference_flag#	element
+1#	contents#		textContent
+1#	return_flag#	wood
+
+2#	action_type#	find_element
+2#	element_path_type#	by_id
+2#	element_path#	js_GlobalMenu_wine
+
+3#	action_type#	get_attribute
+3#	reference_flag#	element
+3#	contents#		textContent
+3#	return_flag#	wine
+
+4#	action_type#	find_element
+4#	element_path_type#	by_id
+4#	element_path#	js_GlobalMenu_marble
+
+5#	action_type#	get_attribute
+5#	reference_flag#	element
+5#	contents#		textContent
+5#	return_flag#	marble
+
+6#	action_type#	find_element
+6#	element_path_type#	by_id
+6#	element_path#	js_GlobalMenu_crystal
+
+7#	action_type#	get_attribute
+7#	reference_flag#	element
+7#	contents#		textContent
+7#	return_flag#	glass
+
+8#	action_type#	find_element
+8#	element_path_type#	by_id
+8#	element_path#	js_GlobalMenu_sulfur
+
+9#	action_type#	get_attribute
+9#	reference_flag#	element
+9#	contents#		textContent
+7#	return_flag#	sulfur

@@ -10,17 +10,47 @@ class Main():
 		self.main=main_logic.Main()
 		self.city_list={}
 		self.current_city=0
-		
-		self.test()
+		#login
+		self.login()
+		self.get_overview()
+		self.get_trade_overview()
 
-	def test(self):
-		return_contents=self.action('test1')
+	def get_trade_overview(self):
+		self.current_city=0
+		url=str(self.city_list[self.current_city].building['TradingPost'].href)
+		print url
+		self.main.driver.get(url)
+		self.get_trade_list()
+
+	def get_trade_list(self):
+		return_contents=self.action('get_trade_list')
 		for index in return_contents['html']:
-			print '-----------------------------------------'
-			print index
-			print return_contents['html'][index]
+			html=return_contents['html'][index].replace(',','').replace(' ','').replace('amp;','')
+			
+			print re.compile('(?<=<td>)\\d*').search(html).group()
+			print re.compile('(?<=title=").*?(?=">)').search(html).group()
+			print re.compile('(?<=white-space:nowrap;">).*?(?=<)').search(html).group()
+			print re.compile('(?<=href="\\?).*?(?=">)').search(html).group()
 
+	def get_overview(self):
+		for index in self.city_list:
+			self.current_city=index
+			url='https://s1-en.ikariam.gameforge.com/index.php?cityId='+str(self.city_list[self.current_city].city_id)
+			self.main.driver.get(url)
+			self.get_building_level()
+			self.get_resources()
 		
+		for index in self.city_list:
+			print '-----------------------------------------------------------'
+			print self.city_list[index].city_id,self.city_list[index].city_name
+			print 'wood',self.city_list[index].resource.wood
+			print 'wine',self.city_list[index].resource.wine
+			print 'marble',self.city_list[index].resource.marble
+			print 'glass',self.city_list[index].resource.glass
+			print 'sulfur',self.city_list[index].resource.sulfur
+			for index1 in self.city_list[index].building:
+				print self.city_list[index].building[index1].name,self.city_list[index].building[index1].level,self.city_list[index].building[index1].location,self.city_list[index].building[index1].href
+
 
 	def login(self):
 		return_contents=self.action('login')
@@ -61,26 +91,13 @@ class Main():
 		self.main.Get_Action_List(action)
 		self.main.Process_Action()
 		return self.main.return_contents
-'''
+
+	def test(self):
+		return_contents=self.action('test1')
+
 if __name__ == "__main__":
 	try:
 		main=Main()
 	except:
 		print traceback.print_exc()
 	main.main.driver.quit()
-'''
-html='\
-                                    <td class="short_text80">G Troop 11 MM                                        <br>(M Sqdn)\
-                                    </td>\
-                                                                        <td>242,500</td>\
-                                    <td><img src="skin/resources/icon_wine.png" alt="Wine" title="Wine"></td>\
-                                    <td style="white-space:nowrap;">6                                        <img src="skin/resources/icon_gold.png" class="icon_gold"> Per Piece</td>\
-                                    <td>8</td>\
-                                    <td><a onclick="ajaxHandlerCall(this.href);return false;" href="?view=takeOffer&amp;destinationCityId=448470&amp;oldView=branchOffice&amp;activeTab=bargain&amp;cityId=769529&amp;position=9&amp;type=333&amp;resource=1"><img src="skin/layout/icon-kiste.png" alt="" title=""></a></td>\
-                                '
-html=html.replace(',','').replace(' ','').replace('amp;','')
-print html
-print re.compile('(?<=<td>)\\d*').search(html).group()
-print re.compile('(?<=title=").*?(?=">)').search(html).group()
-print re.compile('(?<=white-space:nowrap;">).*?(?=<)').search(html).group()
-print re.compile('(?<=href="\\?).*?(?=">)').search(html).group()

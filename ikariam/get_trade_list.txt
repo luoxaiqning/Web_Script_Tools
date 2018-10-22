@@ -1,0 +1,202 @@
+0#	action_type#	click_button
+0#	element_path_type#	by_xpath
+0#	element_path#	//*[@id="finder"]/div[1]/table[1]/tbody/tr/td[1]
+0#	sleep_time#	10
+
+1#	action_type#	click_button
+1#	element_path_type#	by_xpath
+1#	element_path#	//*[@id="js_searchResourceContainer"]/span
+1#	sleep_time#	10
+
+2#	action_type#	click_button
+2#	element_path_type#	by_xpath
+2#	element_path#	//*[@id="dropDown_js_searchResourceContainer"]/div[1]/ul/li[1]
+2#	sleep_time#	10
+
+3#	action_type#	find_elements
+3#	element_path_type#	by_xpath
+3#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+
+4#	action_type#	get_attribute
+4#	reference_flag#	elements
+4#	contents#		innerHTML
+4#	return_flag#	buy_wood
+
+5#	action_type#	click_button
+5#	element_path_type#	by_xpath
+5#	element_path#	//*[@id="js_searchResourceContainer"]/span
+5#	sleep_time#	10
+
+6#	action_type#	click_button
+6#	element_path_type#	by_xpath
+6#	element_path#	//*[@id="dropDown_js_searchResourceContainer"]/div[1]/ul/li[2]
+6#	sleep_time#	10
+
+7#	action_type#	find_elements
+7#	element_path_type#	by_xpath
+7#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+8#	action_type#	get_attribute
+8#	reference_flag#	elements
+8#	contents#		innerHTML
+8#	return_flag#	buy_wine
+
+9#	action_type#	click_button
+9#	element_path_type#	by_xpath
+9#	element_path#	//*[@id="js_searchResourceContainer"]/span
+9#	sleep_time#	10
+
+10#	action_type#	click_button
+10#	element_path_type#	by_xpath
+10#	element_path#	//*[@id="dropDown_js_searchResourceContainer"]/div[1]/ul/li[3]
+10#	sleep_time#	10
+
+11#	action_type#	find_elements
+11#	element_path_type#	by_xpath
+11#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+12#	action_type#	get_attribute
+12#	reference_flag#	elements
+12#	contents#		innerHTML
+12#	return_flag#	buy_marble
+
+13#	action_type#	click_button
+13#	element_path_type#	by_xpath
+13#	element_path#	//*[@id="js_searchResourceContainer"]/span
+13#	sleep_time#	10
+
+14#	action_type#	click_button
+14#	element_path_type#	by_xpath
+14#	element_path#	//*[@id="dropDown_js_searchResourceContainer"]/div[1]/ul/li[4]
+14#	sleep_time#	10
+
+15#	action_type#	find_elements
+15#	element_path_type#	by_xpath
+15#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+16#	action_type#	get_attribute
+16#	reference_flag#	elements
+16#	contents#		innerHTML
+16#	return_flag#	buy_glass
+
+17#	action_type#	click_button
+17#	element_path_type#	by_xpath
+17#	element_path#	//*[@id="js_searchResourceContainer"]/span
+17#	sleep_time#	10
+
+18#	action_type#	click_button
+18#	element_path_type#	by_xpath
+18#	element_path#	//*[@id="dropDown_js_searchResourceContainer"]/div[1]/ul/li[5]
+18#	sleep_time#	10
+
+19#	action_type#	find_elements
+19#	element_path_type#	by_xpath
+19#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+20#	action_type#	get_attribute
+20#	reference_flag#	elements
+20#	contents#		innerHTML
+20#	return_flag#	buy_sulfur
+
+21#	action_type#	click_button
+21#	element_path_type#	by_xpath
+21#	element_path#	//*[@id="finder"]/div[1]/table[1]/tbody/tr/td[3]
+21#	sleep_time#	10
+
+22#	action_type#	click_button
+22#	element_path_type#	by_xpath
+22#	element_path#	//*[@id="js_searchResourceContainer"]/span
+22#	sleep_time#	10
+
+23#	action_type#	click_button
+23#	element_path_type#	by_xpath
+23#	element_path#	//*[@id="dropDown_js_searchResourceContainer"]/div[1]/ul/li[1]
+23#	sleep_time#	10
+
+24#	action_type#	find_elements
+24#	element_path_type#	by_xpath
+24#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+
+25#	action_type#	get_attribute
+25#	reference_flag#	elements
+25#	contents#		innerHTML
+25#	return_flag#	sell_wood
+
+26#	action_type#	click_button
+26#	element_path_type#	by_xpath
+26#	element_path#	//*[@id="js_searchResourceContainer"]/span
+26#	sleep_time#	10
+
+27#	action_type#	click_button
+27#	element_path_type#	by_xpath
+27#	element_path#	//*[@id="dropDown_js_searchResourceContainer"]/div[1]/ul/li[2]
+27#	sleep_time#	10
+
+28#	action_type#	find_elements
+28#	element_path_type#	by_xpath
+28#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+
+29#	action_type#	get_attribute
+29#	reference_flag#	elements
+29#	contents#		innerHTML
+29#	return_flag#	sell_wine
+
+30#	action_type#	click_button
+30#	element_path_type#	by_xpath
+30#	element_path#	//*[@id="js_searchResourceContainer"]/span
+30#	sleep_time#	10
+
+31#	action_type#	click_button
+31#	element_path_type#	by_xpath
+31#	element_path#	//*[@id="dropDown_js_searchResourceContainer"]/div[1]/ul/li[3]
+31#	sleep_time#	10
+
+32#	action_type#	find_elements
+32#	element_path_type#	by_xpath
+32#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+33#	action_type#	get_attribute
+33#	reference_flag#	elements
+33#	contents#		innerHTML
+33#	return_flag#	sell_marble
+
+34#	action_type#	click_button
+34#	element_path_type#	by_xpath
+34#	element_path#	//*[@id="js_searchResourceContainer"]/span
+34#	sleep_time#	10
+
+35#	action_type#	click_button
+35#	element_path_type#	by_xpath
+35#	element_path#	//*[@id="dropDown_js_searchResourceContainer"]/div[1]/ul/li[4]
+35#	sleep_time#	10
+
+36#	action_type#	find_elements
+36#	element_path_type#	by_xpath
+36#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+37#	action_type#	get_attribute
+37#	reference_flag#	elements
+37#	contents#		innerHTML
+37#	return_flag#	sell_glass
+
+38#	action_type#	click_button
+38#	element_path_type#	by_xpath
+38#	element_path#	//*[@id="js_searchResourceContainer"]/span
+38#	sleep_time#	10
+
+39#	action_type#	click_button
+39#	element_path_type#	by_xpath
+39#	element_path#	//*[@id="dropDown_js_searchResourceContainer"]/div[1]/ul/li[5]
+39#	sleep_time#	10
+
+40#	action_type#	find_elements
+40#	element_path_type#	by_xpath
+40#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+41#	action_type#	get_attribute
+41#	reference_flag#	elements
+41#	contents#		innerHTML
+41#	return_flag#	sell_sulfur

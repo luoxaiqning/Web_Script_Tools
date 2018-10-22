@@ -42,7 +42,7 @@ def click_enter(element):
 	element.send_keys(Keys.ENTER)
 
 def element_input_text(element,action):
-	#print 'action.contents',action.contents
+	print 'action.contents',action.contents
 	element.send_keys(action.contents.decode('utf8'))
 
 def select(element,action):

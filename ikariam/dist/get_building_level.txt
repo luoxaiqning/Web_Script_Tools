@@ -1,0 +1,18 @@
+0#	action_type#	find_elements
+0#	element_path_type#	by_xpath
+0#	element_path#	//a[starts-with(@id,'js_CityPosition')]
+
+1#	action_type#	get_attribute
+1#	reference_flag#	elements
+1#	contents#		title
+1#	return_flag#	detail
+
+2#	action_type#	get_attribute
+2#	reference_flag#	elements
+2#	contents#		id
+2#	return_flag#	location
+
+3#	action_type#	get_attribute
+3#	reference_flag#	elements
+3#	contents#		href
+3#	return_flag#	href

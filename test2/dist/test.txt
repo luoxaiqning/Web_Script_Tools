@@ -1,0 +1,25 @@
+0#	action_type#	open_page
+0#	url#		http://www.99ff9.com
+
+1#	action_type#	click_button
+1#	element_path_type#	by_xpath
+1#	element_path#	/html/body/div[1]/header/div/div/div[2]/div[4]/a[1]
+
+2#	action_type#	input_text
+2#	element_path_type#	by_xpath
+2#	element_path#	//*[@id="username"]
+2#	contents#		ff99f13579
+
+3#	action_type#	input_text
+3#	element_path_type#	by_xpath
+3#	element_path#	//*[@id="pass"]
+3#	contents#		123456
+
+4#	action_type#	click_button
+4#	element_path_type#	by_xpath
+4#	element_path#	//*[@id="logon_form"]/div/div[3]/div/input
+
+5#	action_type#	open_page
+5#	url#		http://www.baidu.com
+
+6#	action_type#	download_html

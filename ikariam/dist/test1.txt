@@ -1,0 +1,12 @@
+0#	action_type#	open_page
+0#	url#		E:\Web_Script_Tools\test\html1.html
+
+1#	action_type#	find_elements
+1#	element_path_type#	by_xpath
+1#	element_path#	//*[@id="finder"]/div[1]/table[2]/tbody/tr[@title=""]
+
+
+2#	action_type#	get_attribute
+2#	reference_flag#	elements
+2#	return_flag#	html
+2#	contents#		innerHTML
