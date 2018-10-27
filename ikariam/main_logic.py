@@ -31,13 +31,15 @@ class Main():
 		#firefoxProfile=FirefoxProfile() 								# 	
 		#firefoxProfile.set_preference('permissions.default.image',2)	# 
 		#self.driver=webdriver.Firefox(firefoxProfile)
-		self.headless_flag	=True
+		self.headless_flag	=False
 		self.noimg_flag 	=False
+		self.minisize		=True
 		self.return_flag	=''
 		chrome_options=Options()
 		if self.headless_flag:chrome_options.add_argument('--headless')
 		if self.noimg_flag:   chrome_options.add_experimental_option("prefs",{"profile.managed_default_content_settings.images":2})
 		self.driver=webdriver.Chrome(chrome_options=chrome_options)
+		if self.minisize:self.driver.minimize_window()
 		#self.driver.set_page_load_timeout(120)
 		#self.driver.set_window_size(500,500)
 
@@ -135,6 +137,7 @@ class Main():
 			if element:Tools_Pool.click_button(element)
 
 		elif action.action_type=='click_enter':
+			#self.element=Tools_Pool.click_enter(driver)
 			element=Tools_Pool.get_element(action,driver)
 			if element:Tools_Pool.click_enter(element)
 
@@ -150,8 +153,10 @@ class Main():
 			if driver:Tools_Pool.get_text(driver)
 
 		elif action.action_type=='get_attribute':
-			if driver:
-				Tools_Pool.get_attribute(self,driver,action)
+			if driver:Tools_Pool.get_attribute(self,driver,action)
+
+		elif action.action_type=='set_attribute':
+			if driver:Tools_Pool.set_attribute(self,self.driver,driver,action)
 '''
 if __name__ == "__main__":
 	try:

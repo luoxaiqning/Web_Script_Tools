@@ -1,38 +1,16 @@
 0#	action_type#	open_page
 0#	url#		http://www.baidu.com
 
-1#	action_type#	open_page
-1#	url#		http://www.baidu.com
+1#	action_type#	find_element
+1#	element_path_type#	by_xpath
+1#	element_path#	//*[@id="su"]
 
-2#	action_type#	open_page
-2#	url#		http://www.baidu.com
+2#	action_type#	set_attribute
+2#	reference_flag#	element
+2#	contents#		'value','test'
 
-3#	action_type#	open_page
-3#	url#		http://www.baidu.com
+3#	action_type#	get_attribute
+3#	reference_flag#	element
+3#	contents#		value
+3#	return_flag#	test
 
-4#	action_type#	open_page
-4#	url#		http://www.baidu.com
-
-5#	action_type#	open_page
-5#	url#		http://www.baidu.com
-
-6#	action_type#	open_page
-6#	url#		http://www.baidu.com
-
-7#	action_type#	open_page
-7#	url#		http://www.baidu.com
-
-8#	action_type#	open_page
-8#	url#		http://www.baidu.com
-
-9#	action_type#	open_page
-9#	url#		http://www.baidu.com
-
-10#	action_type#	open_page
-10#	url#		http://www.baidu.com
-
-11#	action_type#	open_page
-11#	url#		http://www.baidu.com
-
-12#	action_type#	open_page
-12#	url#		http://www.baidu.com

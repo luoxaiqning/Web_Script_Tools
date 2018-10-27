@@ -10,18 +10,25 @@ class Main():
 		self.main=main_logic.Main()
 		self.city_list={}
 		self.current_city=0
+		#self.test()
 		#login
 		self.login()
-		self.get_overview()
+		#self.get_overview()
 		#self.get_trade_overview()
-		self.transport()
+		self.transport_routine()
 
-	def transport(self):
+	def transport_routine(self):
 		self.current_city=0
-		url=str(self.city_list[self.current_city].building['TradingPort'].href)
+		#url=str(self.city_list[self.current_city].building['TradingPort'].href)
+		url='https://s1-en.ikariam.gameforge.com/index.php?view=transport&destinationCityId='+str(self.city_list[5].city_id)
+		
 		print url
 		self.main.driver.get(url)
-		self.action('download_html')
+		return_contents=self.action('transport')
+		print '------------'
+		for index in return_contents:
+			for index2 in return_contents[index]:
+				print return_contents[index][index2]
 
 	def get_trade_overview(self):
 		self.current_city=0
@@ -115,7 +122,10 @@ class Main():
 		return self.main.return_contents
 
 	def test(self):
-		return_contents=self.action('test1')
+		return_contents=self.action('test')
+		for index in return_contents:
+			for index2 in return_contents[index]:
+				print return_contents[index][index2]
 
 if __name__ == "__main__":
 	try:

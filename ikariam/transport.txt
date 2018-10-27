@@ -1,0 +1,21 @@
+0#	action_type#	find_element
+0#	element_path_type#	by_id
+0#	element_path#	textfield_wine
+
+1#	action_type#	set_attribute
+1#	reference_flag#	element
+1#	contents#		'value','10000'
+
+2#	action_type#	find_element
+2#	element_path_type#	by_xpath
+2#	element_path#	//*[@id="transport"]/div[2]/div[2]
+
+3#	action_type#	set_attribute
+3#	reference_flag#	element
+3#	contents#		'style','top: -800px;'
+
+4#	action_type#	download_html
+
+5#	action_type#	click_button
+5#	element_path_type#	by_id
+5#	element_path#	submit

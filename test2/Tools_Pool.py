@@ -24,7 +24,7 @@ def download_img(element,flag):
 
 def download_html(driver):
 	html=driver.execute_script("return document.documentElement.outerHTML")
-	file=open('html.html','w')
+	file=open('E:\\Web_Script_Tools\\test2\\dist\\html.html','w')
 	file.write(html)
 	file.close()
 '''

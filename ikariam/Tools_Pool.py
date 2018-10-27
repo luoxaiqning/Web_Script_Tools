@@ -32,11 +32,15 @@ def print_element(element):
 	print element.get_attribute('innerHTML')
 	self.return_contents[action.return_flag][len(self.return_contents[action.return_flag])]=element.get_attribute('innerHTML')
 '''
+def set_attribute(self,driver,element,action):
+	driver.execute_script("arguments[0].setAttribute("+action.contents+")",element)
+
 def get_attribute(self,element,action):
 	#print 'mark',action.return_flag,len(self.return_contents[action.return_flag])
 	self.return_contents[action.return_flag][len(self.return_contents[action.return_flag])]=element.get_attribute(action.contents)
 
 def click_button(element):
+	#print element.get_attribute('id')
 	element.click()
 
 def click_enter(element):
@@ -44,6 +48,8 @@ def click_enter(element):
 
 def element_input_text(element,action):
 	#print 'action.contents',action.contents
+	#print 'element',element
+	#print element.get_attribute('class')
 	element.send_keys(action.contents.decode('utf8'))
 
 def select(element,action):
